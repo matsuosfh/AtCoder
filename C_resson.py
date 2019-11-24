@@ -1,4 +1,6 @@
-# C - Grid Repainting 2
+test
+
+"""# C - Grid Repainting 2
 H, W = map(int,input().split())
 S = [list(str(input())) for i in range(H)]
 
@@ -26,7 +28,7 @@ for h in range(H):
             if tmp == 0:
                 print('No')
                 exit()
-print('Yes')
+print('Yes')"""
 
 
 """途中# C - To Infinity
