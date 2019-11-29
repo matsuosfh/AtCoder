@@ -1,4 +1,71 @@
-# B - Iron Bar Cutting
+# C - Buy an Integer
+A, B, X = map(int, input().split())
+DP =[]
+tmp = 0
+for i in range(1,10):
+    tmp = (X - B*i)//A
+    DP.append(tmp)
+#print(DP)
+#print(len(str(DP[8])))
+
+for i in range(9):
+    if DP[i] <= 0:
+        print(0)
+        exit()
+    elif i+1 == len(str(DP[i])):
+        if i == 8:
+            print(DP[8])
+        else:
+            print(DP[i])
+        exit()
+    elif len(str(DP[i])) >= 10:
+        print(1000000000)
+        exit()
+    else:
+        pass
+print(0)
+
+
+
+# for i in range(1,10):
+#     DP[i]
+
+
+"""# B - ROT N
+N = int(input())
+S = str(input())
+def caesar(s, n):
+    ns = []
+    for ch in s:
+        # A - Z
+        if ('A' <= ch and ch <= 'Z'):
+            ns.append(chr((ord(ch) - ord('A') + n) % 26 + ord('A')))
+        # no change for other characters
+        else:
+            ns.append(ch)
+    return "".join(ns)
+
+result = caesar(S, N)
+print(result)"""
+
+"""# A - Can't Wait for Holiday
+S =str(input())
+if S == "SUN":
+    print(7)
+elif S == "MON":
+    print(6)
+elif S == "TUE":
+    print(5)
+elif S == "WED":
+    print(4)
+elif S == "THU":
+    print(3)
+elif S == "FRI":
+    print(2)
+else:
+    print(1)"""
+
+"""# B - Iron Bar Cutting
 N = int(input())
 A = list(map(int, input().split()))
 A_1 = sum(A)//2
@@ -17,7 +84,7 @@ for i in range(N):
         print(min(ans1,ans2))
         exit()
 
-
+"""
 
 """# A - DDCC Finals
 x,y = map(int, input().split())
