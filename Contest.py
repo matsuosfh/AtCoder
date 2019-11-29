@@ -25,7 +25,7 @@ for i in range(9):
         pass
 print(0)
 
-
+test
 
 # for i in range(1,10):
 #     DP[i]
