@@ -1,4 +1,38 @@
-test
+# C - City Savers
+N = int(input())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+
+if B[0]-A[0] >= 0:
+    ans = B[0]
+    B[0] = B[0]-A[0]
+    if B[0] - A[1] >= 0:
+        A[1] = 0
+    else:
+        A[1] = A[1]-B[0]
+else:
+    ans = B[0]
+    B[0] = 0
+
+for i in range(1,N):
+    tmp = B[i] - A[i]
+    if tmp > 0:
+        ans += A[i]
+        if tmp - A[i+1] >= 0:
+            ans += A[i + 1]
+            A[i+1] = 0
+
+        else:
+            A[i+1] = A[i+1] - tmp
+    else:
+        ans += B[i]
+if B[N-1]-A[N] > 0:
+    ans += A[N]
+else:
+    ans += B[N-1]
+
+
+print(ans)
 
 """# C - Grid Repainting 2
 H, W = map(int,input().split())
@@ -30,7 +64,6 @@ for h in range(H):
                 exit()
 print('Yes')"""
 
-
 """途中# C - To Infinity
 S = str(input())
 K = int(input())
@@ -46,9 +79,6 @@ for i in range(len(S)):
 
 print(1)"""
 
-
-
-
 """# C - 数を3つ選ぶマン
 A,B,C,D,E = map(int, input().split())
 
@@ -59,7 +89,6 @@ if tmp1 >= tmp2:
     print(tmp1)
 else:
     print(tmp2)"""
-
 
 """# C - Typical Stairs
 N,M = map(int, input().split())
@@ -112,8 +141,6 @@ for j in range(len(B)-K):
     ans += B[j]
 
 print(ans)"""
-
-
 
 """# C - pushpush
 from collections import deque
@@ -292,7 +319,6 @@ print(ans)
 
 """
 
-
 """# C - Multiple Clocks
 # import math mathはatcoderでは使えない
 from fractions import gcd
@@ -308,7 +334,6 @@ else:
         DP[i] = (DP[i-1]*T[i+1]) // gcd(DP[i-1],T[i+1])
     print(DP[-1])
 """
-
 
 """# C - Bugged
 N = int(input())
@@ -381,7 +406,6 @@ for i in range(N):
     else:
         print(max2)
 """
-
 
 """# C - 柱柱柱柱柱
 N = int(input())
