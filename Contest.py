@@ -1,4 +1,131 @@
-# C - Buy an Integer
+# D - Xor Sum 4
+N = int(input())
+A = list(map(int, input().split()))
+
+ans = 0
+for i in range(N-1):
+    for j in range(i+1,N):
+        ans += int(A[i]^A[j])
+print(ans % 1000000007)
+#print(int(A[0]^A[1])+int(A[0]^A[2])+int(A[1]^A[2]))
+
+# for i in range(N):
+#     A[i]= (format(A[i],'b'))
+# print(A)
+
+
+
+"""# C - HonestOrUnkind2
+
+N = int(input())
+A = [0]*N
+x = [0]*N
+ans0 = [1] * N
+ans = 0
+ans1 = 1
+for i in range(N):
+    A[i] = int(input())
+    x[i] = [list(map(int, input().split())) for j in range(A[i])]
+
+print(N,A,x)
+print(x[0],x[0][0],x[0][0][0])
+
+for k in range(N):
+    for l in range(N-1):
+        # if A[k] == 1:
+        #     for m in range
+        #     if x[k][l][0]:
+        #         if x[k][l][1] == 0:
+        #             ans0[m] = ans0[m] * -1
+        #         else:
+        #             ans0[m] = ans0[m] * 1
+        # else:
+        for m in range(N): #対象選択
+            if x[k][l][0] == m+1:
+                if x[k][l][1] == 0:
+                    ans0[m] = ans0[m] * -1
+                else:
+                    ans0[m] = ans0[m] * 1
+print(ans0)
+
+for m in range(N):
+    ans1 *= ans0[m]
+
+if ans1 == 1:
+    ans = 1
+
+for m in range(N):
+    if ans0[m] == 1:
+        ans += ans0[m]
+    else:
+        pass
+print(ans)"""
+
+
+"""# B - Palindrome-philia
+S = str(input())
+N = len(S)
+count = 0
+for i in range(N//2):
+    if S[i] == S[(N-1)-i]:
+        pass
+    else:
+        count += 1
+print(count)"""
+
+"""# A - Blackjack
+A, B, C = map(int, input().split())
+if A+B+C <= 21:
+    print('win')
+else:
+    print('bust')"""
+
+"""# D - Lucky PIN
+N = int(input())
+S = str(input())
+"""
+
+"""# C - 100 to 105
+X = int(input())
+
+for a in range(2501):
+    for b in range(2501-100*a):
+        for c in range(2501-100*a-101*b):
+            for d in range(2501-100*a-101*b-102*c):
+                for e in range(2501-100*a-101*b-102*c-103*d):
+                    for f in range(2501-100*a-101*b-102*c*103*d-104*e):
+                        if 100*a+101*b+102*c+103*d+104*e+105*f == X:
+                            print(1)
+                            exit()
+                        else:
+                            pass
+print(0)"""
+"""# B - Tax Rate
+import math
+N = int(input())
+tmp = round(N / 1.08)
+
+if math.floor(tmp * 1.08) == N:
+    print(int(tmp))
+elif math.floor((tmp+1) * 1.08) == N:
+    print(int(tmp+1))
+else:
+    print(":(")"""
+
+"""# A - November 30
+M1, D1 = map(int, input().split())
+M2, D2 = map(int, input().split())
+
+if (M1 == 1 or M1 ==3 or M1 ==5 or M1 ==7 or M1 ==8 or M1 ==10 or M1 ==12) and D1 == 31:
+    print(1)
+elif (M1 == 4 or M1 == 6 or M1 ==9 or M1 ==11) and D1 == 30:
+    print(1)
+elif M1 == 2 and D1 == 28:
+    print(1)
+else:
+    print(0)"""
+
+"""# C - Buy an Integer
 A, B, X = map(int, input().split())
 DP =[]
 tmp = 0
@@ -24,8 +151,7 @@ for i in range(9):
     else:
         pass
 print(0)
-
-test
+"""
 
 # for i in range(1,10):
 #     DP[i]

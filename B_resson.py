@@ -1,4 +1,4 @@
-# B - Christmas Eve Eve
+"""# B - Christmas Eve Eve
 N = int(input())
 A = list(int(input()) for i in range(N))
 
@@ -9,7 +9,7 @@ ans = 0
 for i in range(len(A)):
     ans += A[i]
 
-print(ans)
+print(ans)"""
 
 """# B - Maximum Sum
 #A, B, C = map(int, input().split())
@@ -43,21 +43,28 @@ else:
 
 print(ans)"""
 
-"""# B - Balance
+# B - Balance
 N = int(input())
 W = list(map(int, input().split()))
 sum1 = 0
+sum1n = 0
 sum2 = 0
 i = 0
-while sum1 <= sum(W)/2:
+j = 0
+while sum1 < sum(W)/2:
     sum1 += W[i]
-    sum2 = sum1 + W[i+1]
     i += 1
 
-ans = min(abs(sum(W)-sum1-sum1),abs(sum(W)-sum2 - sum2))
+while sum1n <= sum(W)/2:
+    sum1n += W[j]
+    j += 1
+
+sum2 = sum(W)-sum1
+sum2n = sum(W)-sum1n
+ans = min(abs(sum2-sum1),abs(sum2n-sum1n))
 
 #ans = abs(sum(W) - sum1-sum1)
-print(ans)"""
+print(ans)
 
 
 """# ABC087B - Coins
