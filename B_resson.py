@@ -1,3 +1,14 @@
+# B - Snake Toy
+N, K = map(int, input().split())
+A = list(map(int, input().split()))
+ans = 0
+A.sort(reverse=True)
+
+for i in range(K):
+    ans += A[i]
+
+print(ans)
+
 """# B - Christmas Eve Eve
 N = int(input())
 A = list(int(input()) for i in range(N))
@@ -43,7 +54,7 @@ else:
 
 print(ans)"""
 
-# B - Balance
+"""# B - Balance
 N = int(input())
 W = list(map(int, input().split()))
 sum1 = 0
@@ -64,7 +75,7 @@ sum2n = sum(W)-sum1n
 ans = min(abs(sum2-sum1),abs(sum2n-sum1n))
 
 #ans = abs(sum(W) - sum1-sum1)
-print(ans)
+print(ans)"""
 
 
 """# ABC087B - Coins

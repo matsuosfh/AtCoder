@@ -1,10 +1,17 @@
-# A - Restaurant
+"""# A - Sharing Cookies
+A, B = map(int, input().split())
+if A % 3 ==0 or B % 3 ==0 or (A+B) % 3 == 0:
+    print("Possible")
+else:
+    print("Impossible")"""
+
+"""# A - Restaurant
 N = int(input())
 
 ans = N * 800
 tmp = int((N // 15) * 200)
 
-print(ans-tmp)
+print(ans-tmp)"""
 
 
 """# A - Christmas Eve Eve Eve

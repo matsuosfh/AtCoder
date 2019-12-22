@@ -1,4 +1,42 @@
-# C - City Savers
+#早めのクリスマスプレゼント
+import math
+N = int(input())
+N_S = math.sqrt(N)
+for x in range(1,int(N_S)):
+    tmp = N-x**2
+    y = math.sqrt(tmp)
+    if y.is_integer():
+        print(x,int(y))
+        exit()
+    else:
+        pass
+print(-1)
+
+
+"""# C - Cat Snuke and a Voyage
+N,M = map(int, input().split())
+A = [list(map(int, input().split())) for i in range(M)]
+goal2 = []
+goal1 = []
+for i in range(M):
+    if A[i][1] == N:
+        goal2.append(A[i][0])
+    elif A[i][0] == 1:
+        goal1.append(A[i][1])
+    else:
+        pass
+
+if len(set(goal1)&set(goal2)) != 0:
+    print("POSSIBLE")
+else:
+    print("IMPOSSIBLE")"""
+
+
+
+
+
+
+"""# C - City Savers
 N = int(input())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
@@ -32,7 +70,7 @@ else:
     ans += B[N-1]
 
 
-print(ans)
+print(ans)"""
 
 """# C - Grid Repainting 2
 H, W = map(int,input().split())
