@@ -1,4 +1,668 @@
-# D - Xor Sum 4
+# D - Bouquet
+n, a, b = map(int, input().split())
+from operator import mul
+from functools import reduce
+MOD = 10**9 + 7
+
+def cmb(n, k, mod, fac, ifac):
+    """
+    nCkを計算する
+    """
+    k = min(k, n-k)
+    return fac[n] * ifac[k] * ifac[n-k] % mod
+
+
+def make_tables(mod, n):
+    """
+    階乗テーブル、逆元の階乗テーブルを作成する
+    """
+    fac = [1, 1] # 階乗テーブル・・・(1)
+    ifac = [1, 1] #逆元の階乗テーブル・・・(2)
+    inverse = [0, 1] #逆元テーブル・・・(3)
+
+    for i in range(2, n+1):
+        fac.append((fac[-1] * i) % mod)
+        inverse.append((-inverse[mod % i] * (mod//i)) % mod)
+        ifac.append((ifac[-1] * inverse[-1]) % mod)
+    return fac, ifac
+
+fac, ifac = make_tables(MOD, n)
+tmp2 = 1
+for l in range(n):
+    tmp2 *= 2
+    tmp2 = tmp2 % (MOD)
+
+ans = ((tmp2 -1) - cmb(n, a, MOD, fac, ifac)- cmb(n, b, MOD, fac, ifac))
+print(ans)
+
+"""#C - Rally
+N = int(input())
+X = list(map(int, input().split()))
+
+ans = []
+for i in range(100):
+    tmp = 0
+    for j in range(len(X)):
+        tmp += (i - X[j])**2
+    ans.append(tmp)
+
+print(min(ans))"""
+
+"""#B - Digits
+N,K = map(int,input().split())
+ans = 0
+while N > 0:
+    N = N//K
+    ans += 1
+
+print(ans)"""
+
+"""#A - Beginner
+N,R = map(int,input().split())
+
+if N >= 10:
+    print(R)
+else:
+    print(R+(100*(10-N)))"""
+
+"""#C - Poll
+import collections
+N = int(input())
+S = [str(input()) for i in range(N)]
+S = sorted(S)
+count = 1
+tmpcount = 1
+DP = [S[0]]
+for i in range(1,N):
+    if S[i] == S[i-1]:
+        count += 1
+        if tmpcount < count:
+            DP.clear()
+            DP.append(S[i])
+            tmpcount = count
+        elif tmpcount == count:
+            DP.append(S[i])
+        else:
+            pass
+    else:
+        count = 1
+        if tmpcount == count:
+            DP.append(S[i])
+        else:
+            pass
+
+for l in range(len(DP)):
+     print(DP[l])
+"""
+
+# print(S)
+#
+# A = collections.Counter(S)
+# maxS = [kv[0] for kv in A.items() if kv[1] == max(A.values())]
+# #print(A)
+# for l in range(len(maxS)):
+#     print(maxS[l])
+
+
+"""#B - Papers, Please
+N = int(input())
+A = list(map(int, input().split()))
+for i in range(N):
+    if A[i] % 2 == 0:
+        if A[i] % 3 == 0 or A[i] % 5 == 0:
+            pass
+        else:
+            print("DENIED")
+            exit()
+    else:
+        pass
+
+print("APPROVED")"""
+
+"""#A - Poor
+A,B,C = map(int,input().split())
+if (A == B and B == C) or (A != B and B != C and A != C):
+    print("No")
+else:
+    print("Yes")"""
+
+"""#D - Dice in Line
+N,K = map(int,input().split())
+p = list(map(int, input().split()))
+S = [0]*N
+s = 0
+s_t = 0
+S[0] = (1+p[0])/2
+
+if N == 1:
+    print(S[0])
+    exit()
+else:
+    pass
+
+for i in range(N-1):
+    S[i+1] =S[i]+(1+p[i+1])/2
+
+if N == K:
+    print(S[N-1])
+    exit()
+else:
+    pass
+
+for j in range(N-K):
+    s_t = S[j+K]-S[j]
+    if s_t >= s:
+        s = s_t
+    else:
+        pass
+
+print(s)"""
+
+"""#C - Distinct or Not
+N = int(input())
+A = list(map(int, input().split()))
+A_1 = list(set(A))
+if len(A) == len(A_1):
+    print("YES")
+else:
+    print("NO")"""
+
+"""#B - I miss you...
+S = str(input())
+print("x"*len(S))"""
+
+"""#A - Remaining Balls
+S,T = map(str,input().split())
+A,B = map(int,input().split())
+U = str(input())
+if U == S:
+    print(A-1,B)
+else:
+    print(A,B-1)"""
+
+"""#E - Crested Ibis vs Monster
+H,N = map(int,input().split())
+A =[list(map(int, input().split())) for i in range(N)]
+tmp = 0
+ans = 0
+for i in range(N):
+    A[i].append(A[i][0]-A[i][1])
+    A[i].append((A[i][0]-A[i][1])/(A[i][0]))
+
+A.sort(key=lambda x: x[3],reverse = True)
+min_A = max(A, key = lambda x:x[2])
+print(A)
+while tmp < H - A[0][0]:
+    tmp += A[0][0]
+    ans += A[0][1]
+
+# if tmp < H:
+#     while tmp < H:
+#         tmp += int(min_A[0])
+#         ans += int(min_A[1])
+# else:
+#     pass
+
+print(ans)"""
+
+"""#D - Caracal vs Monster
+H = int(input())
+
+a = 1
+b = 0
+while ( a <= H):
+    a *= 2
+    b += 1
+
+print(2**b-1)"""
+
+"""#C - Fennec vs Monster
+N,K = map(int,input().split())
+H = list(map(int, input().split()))
+ans = 0
+H.sort(reverse=True)
+
+for i in range(K,N):
+    ans += H[i]
+
+print(ans)"""
+
+"""#B - Common Raccoon vs Monster
+H,N = map(int,input().split())
+A = list(map(int, input().split()))
+
+sum_A = sum(A)
+if H <= sum_A:
+    print("Yes")
+else:
+    print("No")"""
+
+"""#A - Serval vs Monster
+H,A = map(int,input().split())
+
+if H % A > 0:
+    print(int(H/A)+1)
+else:
+    print(int(H/A))"""
+
+"""# D - Handstand 2
+N = int(input())
+count = 0
+tmp = 0
+DP = []
+
+if N < 10:
+    print(N)
+    exit()
+else:
+    n = str(N)
+    for i in range(N):
+        I = str(i)
+        for j in range(int(I[-1]),N+1,10):
+            J = str(j)
+            if J[-1] == I[0] and J[0] == I[-1]:
+                count += 1
+    print(count)
+
+    # for i in range(1,N+1):
+    #     I = str(i)
+    #     DP.append(I)
+    #     count += tmp
+    #     for j in range(1,int(DP[-1])+1):
+    #         tmp = 0
+    #         J = str(j)
+    #         if J[-1] == I[0] and J[0] == I[-1]:
+    #             tmp += 1
+"""
+
+"""#C - Low Elements
+N = int(input())
+A = list(map(int, input().split()))
+count = 1
+print(A)
+tmp = A[0]
+for i in range(1,N):
+    if A[i] <= tmp:
+        count += 1
+        tmp = A[i]
+    else:
+        pass
+print(count)"""
+
+"""# B - Comparing Strings
+a,b = map(str,input().split())
+ans_1 = a *int(b)
+ans_2 = b *int(a)
+#print(ans_1,ans_2)
+if a >= b:
+    print(ans_2)
+else:
+    print(ans_1)"""
+
+"""#A - AC or WA
+N,M = map(int, input().split())
+
+if N == M:
+    print("Yes")
+else:
+    print("No")"""
+
+"""# C - Subarray Sum
+N,K,S = map(int, input().split())
+A = []
+count = 0
+if N == 1:
+    A.append(S)
+    A = [str(a) for a in A]
+    A = " ".join(A)
+    print(A)
+    exit()
+else:
+    while count < K:
+        A.append(S)
+        count += 1
+
+    if N - len(A) > 0:
+        if S < 1000000000:
+            while len(A) < N:
+                A.append(S + 1)
+        else:
+            while len(A) < N:
+                A.append(S - 1)
+
+    else:
+        pass
+    A = [str(a) for a in A]
+    A = " ".join(A)
+    print(A)"""
+
+"""else:
+    A.append(S // 2)
+    if S % 2 == 0:
+        while count < K -1:
+            A.append(S-A[0])
+            count += 1
+    else:
+        while count < K -1:
+            A.append(S - A[0])
+            count += 1
+            if count < K -2:
+                A.append(S // 2)
+    if N - len(A) > 0:
+        A.append(S)
+        while len(A) < N:
+            A.append(S+1)
+    else:
+        pass"""
+
+"""# B - Robot Arms
+N = int(input())
+a =[list(map(int, input().split())) for i in range(N)]
+#print(a)
+count  = 0
+
+a.sort()
+#print(a)
+for i in range(N-1):
+    right = a[i][0] + a[i][1]
+    left = a[i+1][0] - a[i+1][1]
+    if right <= left:
+        pass
+    else:
+        count += 1
+        if a[i][0] + a[i][1] >= a[i+1][0] + a[i+1][1] and a[i][0] + a[i][1] > a[i+1][0]:
+            pass
+        else:
+            a[i+1][0] = a[i][0]
+            a[i+1][1] = a[i][1]
+print(N -count)"""
+
+"""#A - Painting
+H = int(input())
+W = int(input())
+N = int(input())
+
+a = max(H,W)
+if N % a > 0:
+    print((N // a)+1)
+else:
+    print(N // a)"""
+
+"""# C - Welcome to AtCoder
+N,M = map(int, input().split())
+s = list(input().split() for i in range(M))
+
+if M == 0:
+    print(0,0)
+    exit()
+else:
+    pass
+
+AC = 0
+WA = 0
+Num = s[0][0]
+AC_count = 0
+WA_count = 0
+
+
+
+for i in range(M):
+    tmp_N = Num
+    if tmp_N == s[i][0]:
+        pass
+    else:
+        tmp_N = s[i][0]
+        Num = tmp_N
+        AC_count = 0
+        WA_count = 0
+
+    if s[i][1] == 'AC':
+        AC_count += 1
+        if AC_count == 1:
+            AC += 1
+            WA += WA_count
+            WA_count = 0
+        else:
+            WA_count = 0
+    else:
+        if AC_count == 0:
+            WA_count += 1
+        else:
+            pass
+
+print(AC,WA)
+"""
+"""#B - Achieve the Goal
+N,K,M = map(int, input().split())
+A = list(map(int, input().split()))
+point = 0
+
+for i in range(N-1):
+    point += A[i]
+ans = M*N-point
+
+if ans <= K:
+    if ans <= 0:
+        print(0)
+    else:
+        print(ans)
+else:
+    print(-1)"""
+
+"""#A - Next Alphabet
+A = str(input())
+
+print(chr(ord(A) + 1))"""
+
+"""# B - Fusing Slimes
+N = int(input())
+x = list(map(int, input().split()))
+"""
+"""# A - Falling Asleep
+N = int(input())
+s = list(input().split() for i in range(N))
+X = str(input())
+ans = 0
+#print(N,s,X)
+#print(s[0][0])
+count = 0
+for i in range(N):
+    ans += 1
+    if str(s[i][0]) == X:
+        break
+    else:
+        pass
+
+#print(count)
+
+for j in range(count+1,N):
+    ans += int(s[j][1])
+
+print(ans)"""
+
+"""#C - Count Order
+from itertools import permutations
+N = int(input())
+P = tuple(map(int, input().split()))
+Q = tuple(map(int, input().split()))
+l = list(range(1,N+1))
+count = 0
+ans_p = 0
+ans_q = 0
+for i in permutations(l):
+    count += 1
+#    print(i)
+#    print(P)
+    if i == P:
+        ans_p = count
+    else:
+        pass
+    if i == Q:
+        ans_q = count
+    else:
+        pass
+#print(ans_p,ans_q)
+print(abs(ans_p - ans_q))"""
+"""#E - Handshake
+N,K = map(str, input().split())
+A = list(map(int, input().split()))
+
+A.sort(reverse=True)
+count = K
+tmp = 0
+for i in range(N):
+    tmp += 2*A[i]
+    count -= 1
+    if count == 0:
+        print(tmp)
+    else:
+        tmp = A[i]+A[i-1]
+        count -= 1
+        if count == 0:
+        print(tmp)
+
+A[i] + A[i]"""
+
+"""#D - Prediction and Restriction
+N,K = map(int, input().split())
+R,S,P = map(int, input().split())
+t = min(R,S,P)
+if t == R:
+    t_1 = "r"
+elif t == S:
+    t_1 = "s"
+else:
+    t_1 = "p"
+ans = 0
+T = str(input())
+C = []
+DP = []
+for i in range(N):
+
+    if T[i] == "p":
+        C.append("s")
+        DP.append(S)
+    elif T[i] == "s":
+        C.append("r")
+        DP.append(R)
+    else:
+        C.append("p")
+        DP.append(P)
+
+for k in range(K):
+    ans += DP[k]
+
+for j in range(K,N):
+    if DP[j] == DP[j-K]:
+        ans += 0
+        DP[j] = 0
+    else:
+        ans += DP[j]
+
+print(ans)"""
+
+"""# C - Next Prime
+X = int(input())
+n = int(10**5)**2
+def is_prime(n):
+    for k in range(2, n):
+        if n % k == 0:
+            return False
+        else:
+            continue
+    return True
+
+if is_prime(X) == True:
+    print(X)
+else:
+    for i in range(X+1,n+1):
+        if is_prime(i) == True:
+            print(i)
+            exit()
+        else:
+            pass"""
+
+"""# B - Greedy Takahashi
+A,B,K = map(int, input().split())
+
+if (K-A)>=0:
+    ans1 = 0
+    ans2 = B-(K-A)
+else:
+    ans1 = A-K
+    ans2 = B
+
+if ans2 < 0:
+    ans2 = 0
+else:
+    pass
+
+print(ans1,ans2)"""
+
+"""# A - Strings
+A,B = map(str, input().split())
+print(B+A)"""
+"""#E - Double Factoria
+N = int(input())
+ans = 1
+if N % 2 !=0:
+    print(0)
+else:
+    N_1 = N // 10
+    for i in range(N,1,-2):
+        ans *= i
+    print(ans,N_1)"""
+
+"""# D - Brick Break
+N = int(input())
+A = list(map(int, input().split()))
+DP = []
+tmp = 0
+
+for i in range(N):
+    if A[i] == tmp +1:
+        DP.append(A[i])
+        tmp += 1
+    else:
+        pass
+
+if len(DP) >= 1:
+    print(N-len(DP))
+else:
+    print(-1)"""
+
+"""# C - Snack
+import fractions
+A,B = map(int, input().split())
+ans = (A * B) // fractions.gcd(A, B)
+print(ans)"""
+"""# B - Strings with the Same Length
+N = int(input())
+S,T = map(str, input().split())
+ans = ""
+for i in range(N):
+    ans += S[i]+T[i]
+
+print(ans)"""
+
+"""# A - Round One
+A = int(input())
+B = int(input())
+
+if A == 2 and B == 1:
+    print(3)
+elif B == 2 and A == 1:
+    print(3)
+elif A == 3 and B == 1:
+    print(2)
+elif B == 3 and A == 1:
+    print(2)
+elif A == 2 and B == 3:
+    print(1)
+else:
+    print(1)"""
+
+"""# D - Xor Sum 4
 N = int(input())
 A = list(map(int, input().split()))
 
@@ -13,7 +677,7 @@ print(ans % 1000000007)
 #     A[i]= (format(A[i],'b'))
 # print(A)
 
-
+"""
 
 """# C - HonestOrUnkind2
 
@@ -60,7 +724,6 @@ for m in range(N):
     else:
         pass
 print(ans)"""
-
 
 """# B - Palindrome-philia
 S = str(input())
@@ -241,9 +904,6 @@ if x == 1 and y == 1:
 else:
     print(X +Y)"""
 
-
-
-
 """# C - Average Length
 import math
 N = int(input())
@@ -278,8 +938,6 @@ else:
 r = int(input())
 
 print(r**2)"""
-
-
 
 # # C - Swaps
 # N = int(input())
@@ -374,9 +1032,6 @@ for i in range(len(S)+1):
 
 print(ans)"""
 
-
-
-
 """# D - Water Bottle
 import math
 a,b,x = map(int, input().split())
@@ -402,8 +1057,6 @@ for i in range(n,0, -1):
         exit()
     else:
         pass"""
-
-
 
 """# B - 81
 N = int(input())

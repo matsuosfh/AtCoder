@@ -1,4 +1,23 @@
-# B - Snake Toy
+"""#B - Chocolate
+N = int(input())
+D, X = map(int, input().split())
+A = list(int(input()) for i in range(N))
+ans = 0
+
+for i in range(N):
+    tmp = 0
+    while tmp < D:
+        tmp += A[i]
+        ans += 1
+print(ans+X)"""
+
+
+"""#B - i18n
+s = str(input())
+number = str((len(s)-2))
+print(s[0]+number+s[len(s)-1])"""
+
+"""# B - Snake Toy
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 ans = 0
@@ -7,7 +26,7 @@ A.sort(reverse=True)
 for i in range(K):
     ans += A[i]
 
-print(ans)
+print(ans)"""
 
 """# B - Christmas Eve Eve
 N = int(input())
@@ -57,25 +76,35 @@ print(ans)"""
 """# B - Balance
 N = int(input())
 W = list(map(int, input().split()))
-sum1 = 0
-sum1n = 0
-sum2 = 0
-i = 0
-j = 0
-while sum1 < sum(W)/2:
-    sum1 += W[i]
-    i += 1
+sum_l = 0
+sum_r = sum(W)
+abs_W =[]
+for i in range(N):
+    sum_l += W[i]
+    sum_r -= W[i]
+    abs_W.append(abs(sum_r - sum_l))
 
-while sum1n <= sum(W)/2:
-    sum1n += W[j]
-    j += 1
+print(min(abs_W))"""
 
-sum2 = sum(W)-sum1
-sum2n = sum(W)-sum1n
-ans = min(abs(sum2-sum1),abs(sum2n-sum1n))
+# sum1 = 0
+# sum1n = 0
+# sum2 = 0
+# i = 0
+# j = 0
+# while sum1 < sum(W)/2:
+#     sum1 += W[i]
+#     i += 1
+#
+# while sum1n <= sum(W)/2:
+#     sum1n += W[j]
+#     j += 1
+#
+# sum2 = sum(W)-sum1
+# sum2n = sum(W)-sum1n
+# ans = min(abs(sum2-sum1),abs(sum2n-sum1n))
 
 #ans = abs(sum(W) - sum1-sum1)
-print(ans)"""
+
 
 
 """# ABC087B - Coins

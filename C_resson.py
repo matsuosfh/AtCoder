@@ -1,4 +1,164 @@
-#早めのクリスマスプレゼント
+#C - Traveling Plan
+N = int(input())
+A = list(map(int, input().split()))
+DP = []
+ans = []
+DP.append(abs(0-A[0]))
+for i in range(1,N):
+    DP.append(abs(A[i]-A[i-1]))
+
+sum_DP = sum(DP)
+
+for j in range(N):
+    if j == 0:
+        tmp = sum_DP-DP[0]-DP[1]+abs(A[1])+abs(A[N - 1])
+    elif j == N-1:
+        tmp = sum_DP-DP[N-1]+abs(A[N - 2])
+    else:
+        tmp = sum_DP + abs(A[N - 1])-DP[j]-DP[j+1]+abs(A[j+1]-A[j-1])
+    ans.append(tmp)
+
+for i in range(len(ans)):
+    print(ans[i])
+
+
+    # A_ans = A[:]
+    # print(A_ans)
+    # A_ans.pop(i)
+    # print(A_ans)
+    # ans.append(2*abs(max(A)-min(A)))
+
+#print(ans)
+
+
+"""# Green Bin
+N = int(input())
+S = ["".join(sorted(str(input()))) for i in range(N)]
+
+# for l in range(N):
+#     S[l] = list(str(S[l]))
+#     S[l] = sorted(S[l])
+# S = sorted(S)
+count = 0
+print(S)
+
+for i in range(N):
+    S
+
+    for j in range(i + 1, N):
+        if S[i] == S[j]:
+            count = count + 1
+        else:
+            break
+print(count)"""
+
+
+"""# C - Make a Rectangle
+N = int(input())
+A = list(map(int, input().split()))
+
+A.sort(reverse=True)
+print(A)
+tmp1 = 0
+tmp2 = 0
+for i in range(N-3):
+    if A[i] == A[i+1]:
+        tmp1 = A[i]
+    elif A[i+2] == A[i+3]:
+        tmp2 = A[i+2]
+    else:
+        pass
+    if tmp1 >= 1 and tmp2 >= 1:
+         break
+    else:
+        pass
+
+if tmp1 >= 1 and tmp2 >= 1:
+    print(tmp1*tmp2)
+else:
+    print(0)
+"""
+
+
+"""# C - Takahashi's Information
+a =[list(map(int, input().split())) for i in range(3)]
+sum_a = sum(map(sum, a))
+print(sum_a)
+
+for i in range(3,300):
+    if sum_a % i == 0 and sum_a // i >= 3:
+        print("Yes")
+        exit()
+    else:
+        pass
+
+print("No")"""
+
+"""# C - Write and Erase
+import collections
+N = int(input())
+a = [int(input()) for i in range(N)]
+c = collections.Counter(a)
+ans = 0
+#print(c)
+#print(len(c))
+val = list(c.values())
+for j in range(len(val)):
+    if val[j] % 2 == 0:
+        pass
+    else:
+        ans += 1
+
+print(ans)"""
+
+
+"""#C - 4-adjacent
+N = int(input())
+a = list(map(int, input().split()))
+count4 = 0
+count2 = 0
+countki = 0
+
+for i in range(N):
+    if a[i] % 4 == 0:
+        count4 += 1
+    elif a[i] % 2 == 0 and a[i] % 4 != 0:
+        count2 += 1
+    else:
+        countki += 1
+
+if N - count4 -1 >= N - countki:
+    print("Yes")
+elif count2 + count4 > countki:
+    print("Yes")
+else:
+    print("No")
+
+#elif countki == 0 and count2 ==1 and count4 == 0:"""
+
+
+"""# C - Sentou
+N,T = map(int, input().split())
+t = list(map(int, input().split()))
+ans = 0
+tmp = 0
+for i in range(N-1):
+    tmp = t[i]
+    if tmp <= T:
+        if t[i+1]-t[i] >= T:
+            ans += T
+        else:
+            ans += t[i+1]-t[i]
+    else:
+        if t[i+1]-t[i] >= T:
+            ans += T
+        else:
+            ans += t[i+1]-t[i]
+ans += T
+print(ans)"""
+
+
+"""#早めのクリスマスプレゼント
 import math
 N = int(input())
 N_S = math.sqrt(N)
@@ -10,7 +170,7 @@ for x in range(1,int(N_S)):
         exit()
     else:
         pass
-print(-1)
+print(-1)"""
 
 
 """# C - Cat Snuke and a Voyage
@@ -392,43 +552,24 @@ else:
     print(0)
 """
 
-"""途中# C - GeT AC
+"""# C - GeT AC
 N, Q = map(int, input().split())
 S = str(input())
 A = [list(map(int, input().split())) for i in range(Q)]
 S1 = [0]*N
 count = 0
-for j in range(len(S)):
-    if S[j] == 'A' and S[j + 1] == 'C':
+for j in range(1,len(S)):
+    if S[j] == 'C' and S[j - 1] == 'A':
         count += 1
     else:
         pass
     S1[j] = count
-print(S1)
+#print(S1)
 
 for k in range(Q):
     print(S1[A[k][1]-1]-S1[A[k][0]-1])
-
-# for i in range(Q):
-#     count = 0
-#     ans = [k for k in S1 if A[i][0] <= k < A[i][1]]
-#     print(len(ans))
-    # for k in range(len(S1)):
-    #     if A[i][0] <= S1[k] < A[i][1]:
-    #         count += 1
-    #     else:
-    #         pass
-    # print(count)
-
-# for i in range(Q):
-#     count = 0
-#     for j in range(A[i][0]-1,A[i][1]-1):
-#         if S[j] == 'A' and S[j+1] == 'C':
-#             count += 1
-#         else:
-#             pass
-#     print(count)
 """
+
 """# C - Exception Handling
 N = int(input())
 A = [int(input()) for i in range(N)]

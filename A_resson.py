@@ -1,3 +1,23 @@
+#A - Traveling Budget
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
+print(min(A,B)+min(C,D))
+
+"""#A - K-City
+N, M = map(int, input().split())
+print((N-1)*(M-1))"""
+
+"""# A - Infinite Coins
+N = int(input())
+A = int(input())
+
+if A >= N:
+    print("Yes")
+else:"""
+
+
 """# A - Sharing Cookies
 A, B = map(int, input().split())
 if A % 3 ==0 or B % 3 ==0 or (A+B) % 3 == 0:

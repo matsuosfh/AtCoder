@@ -1,4 +1,9 @@
-# C - 755
+#D - 2017-like Number
+Q = int(input())
+A = [list(map(int, input().split())) for i in range(M)]
+for
+
+"""# C - 755
 N = int(input())
 print(N)
 count = 0
@@ -12,7 +17,7 @@ for i in range(N):
     else:
         pass
 
-print(count)
+print(count)"""
 
 """# D - Megalomania
 N = int(input())
