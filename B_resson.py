@@ -1,3 +1,103 @@
+#B - Grid Compression
+
+
+"""#B - Shiritori
+N = int(input())
+S = list(input() for i in range(N))
+if len(S) != len(set(S)):
+    print("No")
+else:
+    for i in range(N-1):
+        if S[i][-1] == S[i+1][0]:
+            pass
+        else:
+            print("No")
+            exit()
+    print("Yes")
+"""
+
+"""#B - AtCoderトランプ
+S = input()
+T = input()
+tmp = 0
+for i in range(len(S)):
+    if S[i] == T[i]:
+        pass
+    elif S[i] == '@':
+        if T[i] == 'a' or T[i] == 't' or T[i] == 'c' or T[i] == 'o' or T[i] == 'd' or T[i] == 'e' or T[i] == 'r' or T[i] == '@':
+            pass
+        else:
+            tmp += 1
+    elif T[i] == '@':
+        if S[i] == 'a' or S[i] == 't' or S[i] == 'c' or S[i] == 'o' or S[i] == 'd' or S[i] == 'e' or S[i] == 'r' or S[i] == '@':
+            pass
+        else:
+            tmp += 1
+    else:
+        tmp += 1
+if tmp >= 1:
+    print("You will lose")
+else:
+    print("You can win")"""
+
+"""#B - さかさま辞書
+N = int(input())
+S = list(input() for i in range(N))
+S_r =[]
+for i in range(N):
+    S_r.append(S[i][::-1])
+
+S_r = sorted(S_r)
+
+for i in range(N):
+    S_a = S_r[i][::-1]
+    print(S_a)"""
+
+
+"""#B - Indeedなう！
+N = int(input())
+S = list(input() for i in range(N))
+s0 = sorted('indeednow')
+
+print(s0)
+
+for i in range(N):
+   tmp = sorted(S[i])
+   if tmp == s0:
+       print("Yes")
+   else:
+       print("No")"""
+
+
+"""#B - Between a and b ...
+def main(a,b,x):
+    return int(b//x - (a-1)//x)
+
+a,b,x = map(int, input().split())
+ans = main(a,b,x)
+print(ans)
+"""
+"""#B - たてなが
+def main(N):
+    for i in range(N):
+        print(''.join(L[i]))
+        print(''.join(L[i]))
+
+H,W = map(int, input().split())
+L = [input().split() for l in range(H)]
+main(H)"""
+
+"""#B - Digit Sums
+N= str(input())
+S = 0
+for i in range(len(N)):
+    S += int(N[i])
+
+if int(N)%S==0:
+    print("Yes")
+else:
+    print("No")"""
+
 """#B - Chocolate
 N = int(input())
 D, X = map(int, input().split())

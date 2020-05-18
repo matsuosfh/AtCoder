@@ -1,9 +1,27 @@
-#A - Traveling Budget
-A = int(input())
-B = int(input())
-C = int(input())
-D = int(input())
-print(min(A,B)+min(C,D))
+
+
+"""#A - Add Sub Mul
+A, B = map(int, input().split())
+print(max(A+B,A-B,A*B))"""
+
+"""#A - ABC333
+A, B = map(int, input().split())
+if A % 2 == 0 or B % 2==0:
+    print("No")
+else:
+    print("Yes")"""
+
+"""#A - Eating Symbols Easy
+S = input()
+ans = 0
+
+for i in range(4):
+    if S[i] == "+":
+        ans += 1
+    else:
+        ans -= 1
+
+print(ans)"""
 
 """#A - K-City
 N, M = map(int, input().split())

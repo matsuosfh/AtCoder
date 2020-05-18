@@ -1,4 +1,99 @@
-# B053:表の自動生成
+#C024:ミニ・コンピュータ
+N = int(input())
+s = [list(input().split()) for j in range(N)]
+DP = [0,0]
+
+for i in range(N):
+    if s[i][0]=="SET":
+        DP[int(s[i][1])-1] = int(s[i][2])
+    elif s[i][0]=="ADD":
+        DP[1] = DP[0]+int(s[i][1])
+    else:
+        DP[1] = DP[0]-int(s[i][1])
+print(DP[0],DP[1])
+
+"""#D154:画面の構成
+N =int(input())
+M = int(input())
+print(N*N-M)"""
+
+
+"""#B076:パン屋さん
+N, Q = map(int, input().split())
+a = [list(map(int, input().split())) for i in range(N)]
+b = [list(input().split()) for j in range(Q)]
+
+
+for j in range(Q):
+    value = 0
+    if b[j][0] == "buy":
+        for i in range(N):
+            if int(b[j][i+1]) <= a[i][1]:
+                a[i][1] = a[i][1] - int(b[j][i+1])
+                value += int(b[j][i+1])*a[i][0]
+            else:
+                value = -1
+                for k in range(i):
+                    a[k][1] += int(b[j][k+1])
+                break
+        print(value)
+    else:
+        for i in range(N):
+            a[i][1] = a[i][1] + int(b[j][i+1])
+"""
+
+
+"""#C077:【30万人記念問題】レポートの評価
+K, N = map(int, input().split())
+a = [list(map(int, input().split())) for i in range(K)]
+
+p = int(100/N)
+
+def point(po):
+    if po >= 80:
+        print("A")
+    elif 70 <= po <= 79:
+        print("B")
+    elif 60 <= po <= 69:
+        print("C")
+    else:
+        print("D")
+
+for i in range(K):
+    ans = a[i][1]*p
+    if a[i][0] <=0:
+        point(ans)
+    elif 1 <= a[i][0] <= 9:
+        ans = int(ans*0.8)
+        point(ans)
+    else:
+        print("D")"""
+
+"""#B045:計算ドリル
+M, N = map(int, input().split())
+
+a_sum = []
+b_sum = []
+a_pull = []
+b_pull = []
+for i in range(M):
+    for j in range(M):
+        if i+j <= 99:
+            a_sum.append(i)
+            b_sum.append(j)
+
+for k in range(N):
+    for l in range(N):
+        if k - l >= 0 and k-l <= 99:
+            a_pull.append(k)
+            b_pull.append(l)
+for m in range(M):
+    print(str(a_sum[m]) + " + " + str(b_sum[m]) + " = ")
+
+for n in range(N):
+    print(str(a_pull[n]) + " - " + str(b_pull[n]) + " = ")"""
+
+"""# B053:表の自動生成
 H, W = map(int, input().split())
 a = [list(map(int, input().split())) for i in range(2)]
 ans = [[0 for i in range(W)] for j in range(H)]
@@ -31,7 +126,7 @@ for l in range(H):
             print(ans[l][k],end=" ")
 
 
-
+"""
 
 """#C056:テストの採点
 N, M = map(int, input().split())

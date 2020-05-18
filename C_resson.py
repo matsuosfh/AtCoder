@@ -1,4 +1,147 @@
-#C - Traveling Plan
+#C - Candles
+N,K = map(int, input().split())
+a =list(map(int, input().split()))
+
+
+"""#C - Attention
+N = int(input())
+S = input()
+DP_w= []
+DP_e = []
+tmp = 0
+tmpw = 0
+tmpe = 0
+ans = 10**9
+for i in range(N):
+    if S[i] == "W":
+        tmpw += 1
+        DP_w.append(tmpw)
+    else:
+        DP_w.append(tmpw)
+
+for j in range(N-1,-1,-1):
+    if S[j] == "E":
+        tmpe += 1
+        DP_e.append(tmpe)
+    else:
+        DP_e.append(tmpe)
+
+DP_e.reverse()
+print(DP_w,DP_e)
+
+for k in range(N):
+    ans = min(ans,DP_w[k]+DP_e[k]-1)
+
+# for i in range(N):
+#     tmpw = S[:i].count('W')
+#     tmpe = S[i+1:].count('E')
+#     ans = min(ans,tmpw+tmpe)
+
+print(ans)
+"""
+"""#C - Skip
+N,X = map(int, input().split())
+a =list(map(int, input().split()))
+a.append(X)
+a = sorted(a,reverse=True)
+b =[]
+for i in range(N):
+    b.append(a[i]-a[i+1])
+
+import fractions
+ans = b[0]
+for i in range(1, N):
+    ans = fractions.gcd(ans, b[i])
+
+print(ans)"""
+
+
+"""#C - Rectangle Cutting
+W,H,x,y = map(int,input().split())
+def main(W,H,x,y):
+    if x == W/2 and y == H/2:
+        ans1 = H*W/2
+        ans2 = 1
+    else:
+        ans1 = H*W/2
+        ans2 = 0
+    print(ans1,ans2)
+main(W,H,x,y)"""
+
+"""#C - Boxes and Candies
+N,x = map(int, input().split())
+a = list(map(int, input().split()))
+DP1=[a[0]+a[1]] #合計
+DP2=[a[0]] #置き換え
+ans = 0
+tmp = 0
+if N == 2:
+    if x <= DP1:
+        print(0)
+        exit()
+    else:
+        print(DP1[0]-x)
+        exit()
+else:
+    if DP1[0] > x:
+        tmp = x-DP1[0]
+        ans += tmp
+        DP2[0] = DP2[0] - tmp
+        DP2.append()
+    else:
+        pass
+
+    for i in range(2,N-1):
+        if DP2[i-1]+a[i] > x:
+            tmp = x - (DP2[i-1]+a[i])
+            ans += tmp
+            DP2.append(a[i-1]-tmp)
+        else:
+            DP2.append(a[i-1])
+
+
+print(DP2)
+print(ans)"""
+
+
+"""#C - 4-adjacent
+N = int(input())
+A = list(map(int, input().split()))
+tmp1 = 0
+tmp2 = 0
+tmp4 = 0
+
+for i in range(N):
+    if A[i] % 4 == 0:
+        tmp4 += 1
+    elif A[i] % 2 == 0:
+        tmp2 += 1
+    else:
+        tmp1 += 1
+
+if tmp2 == 0 and tmp4 >= tmp1-1:
+    print("Yes")
+elif tmp2 > 0 and tmp4 >= tmp1:
+    print("Yes")
+else:
+    print("No")"""
+
+
+"""#C - Minimization
+import math
+N,K = map(int, input().split())
+A = list(map(int, input().split()))
+tmp = 0
+# for i in range(N):
+#     if A[i] == 1:
+#         tmp = i+1
+#         break
+
+print(math.ceil((N-1)/(K-1)))"""
+
+
+
+"""#C - Traveling Plan
 N = int(input())
 A = list(map(int, input().split()))
 DP = []
@@ -29,7 +172,7 @@ for i in range(len(ans)):
     # ans.append(2*abs(max(A)-min(A)))
 
 #print(ans)
-
+"""
 
 """# Green Bin
 N = int(input())

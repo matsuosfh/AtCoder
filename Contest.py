@@ -1,24 +1,942 @@
-# D - Bouquet
+# #D- .. (Double Dots)
+N,M = map(int, input().split())
+C =[list(map(int, input().split())) for i in range(M)]C.sort(key=lambda x: x[1])
+
+
+
+
+"""#C - : (Colon)
+import math
+A,B,H,M = map(int, input().split())
+h = (H*60+M)*360/(12*60)
+m = M*360/60
+
+# h = H*30
+# h = h + 0.5*M
+# m = M*6
+w = 0
+
+w = h - m
+if w > 180:
+    w = w
+# elif w < 0:
+#     w = w+180
+elif w == 180:
+    print(abs(A+B))
+    exit()
+elif w == 0:
+    print(abs(A-B))
+    exit()
+else:
+    pass
+#print(h,m,w)
+
+c = A**2+B**2-2*A*B*math.cos(math.radians(w))
+print(c**(1/2))"""
+
+"""#B - ... (Triple Dots)
+K = int(input())
+S = input()
+if len(S) <=K:
+    print(S)
+else:
+    print(S[0:K]+"...")"""
+
+"""#A - ∴ (Therefore)
+N = input()
+if N[-1]=="3":
+    print("bon")
+elif N[-1]=="0"or N[-1]=="1"or N[-1]=="6"or N[-1]=="8":
+    print("pon")
+else:
+    print("hon")"""
+
+
+"""#D - Teleporter
+N,K = map(int, input().split())
+A = list(map(int, input().split()))
+DP = []
+DP.append(A[0])
+for i in range(N):
+    DP.append(A[DP[i]-1])
+print(DP)
+
+B = [i for i, x in enumerate(DP) if x == DP[N]]
+print(B[1]-B[0])
+c = len(DP) % (B[1]-B[0])
+print(c)
+# DP2 = []
+# for j in range(N):
+#     DP[]
+if N >= K:
+    print(DP[K%len(DP)-1])
+else:
+    print(DP[K % len(DP)-1+c])
+
+# for j in range(len(DP)):"""
+
+
+
+
+"""#C - Skill Up
+N,M,X = map(int, input().split())
+C =[list(map(int, input().split())) for i in range(M)]"""
+
+
+"""#B - Easy Linear Programming
+A,B,C,K = map(int, input().split())
+
+if K >= A:
+    a = A
+else:
+    print(K)
+    exit()
+if A == 0 and C == 0:
+    print(0)
+    exit()
+
+if A == 0 and B == 0:
+    print(-1*K)
+    exit()
+
+if K - (A+B) >= 0:
+    c = -1 * (K - (A + B))
+else:
+    c = 0
+
+print(a+c)"""
+
+
+"""#A - Registration
+S = input()
+T =input()
+if S == T[:-1]:
+    print("Yes")
+else:
+    print("No")"""
+
+"""#D - I hate Factorization
+X = int(input())
+for i in range(-int(X**(1/5)),int(X**(1/5))):
+    for j in range(-int(X**(1/5)),int(X**(1/5))):
+        if i**5 - j**5 ==X:
+            print(i,j)
+            exit()
+"""
+"""#C - Peaks
+N,M = map(int, input().split())
+H =list(map(int, input().split()))
+x =[list(map(int, input().split())) for i in range(M)]
+DP = [1]*N
+for i in range(M):
+    tmp = min(H[x[i][0]-1],H[x[i][1]-1])
+    if H[x[i][0]-1] == H[x[i][1]-1]:
+        DP[x[i][0] - 1] = 0
+        DP[x[i][1] - 1] = 0
+    elif tmp == H[x[i][0]-1]:
+        DP[x[i][0]-1] = 0
+    else:
+        DP[x[i][1] - 1] = 0
+
+#print(DP)
+ans = sum(DP)
+print(ans)"""
+
+"""#B - Trick or Treat
+N,K = map(int, input().split())
+D =[]
+A =[]
+for _ in range(K):
+    d = int(input())
+    a =list(map(int, input().split()))
+
+    D.append(d)
+    A.append(a)
+# print(D,A)
+
+for i in range(1,K):
+    A[0].extend(A[i])
+# print(A[0])
+
+print(N-len(set(A[0])))"""
+
+
+
+"""#A - A?C
+S = input()
+if S == "ABC":
+    print("ARC")
+else:
+    print("ABC")"""
+
+"""#D - Floor Function
+A,B,N = map(int, input().split())
+
+if B>N:
+    a = (A*N)//B
+    b = N//B
+    print(a-A*b)
+    exit()
+else:
+    N = B-1
+    a = (A*N)//B
+    b = N//B
+    print(a-A*b)"""
+"""
+#C - Many Requirements
+N,M,Q = map(int, input().split())
+x =[list(map(int, input().split())) for i in range(Q)]
+
+
+A  =[]
+B = []
+a = []
+for i in range(N):
+    a.append(i)
+    for j in range(M):
+        a.append(j+1)
+    for k in range(j,M):
+        a.append(k+1)
+
+print(A)
+"""
+
+"""# B - 1%
+X =int(input())
+a = 100
+for i in range(3761):
+    a = int(a*1.01)
+    if a >= X:
+        print(i+1)
+        exit()
+    else:
+        pass"""
+
+"""#A - We Love Golf
+K = int(input())
+A,B = map(int, input().split())
+
+if B-A == 0:
+    if A%K==0:
+        print("OK")
+        exit()
+    else:
+        print("NG")
+        exit()
+else:
+    pass
+
+for i in range(A,B+1):
+    if i % K == 0:
+        print("OK")
+        exit()
+    else:
+        pass
+print("NG")"""
+
+
+
+"""#D - Multiple of 2019
+import re
+S = str(input())
+cnt =0
+DP =[]
+DP2 = []
+n = 2019
+m = 1
+
+for i in range(99):
+    DP.append(2019*(i+1))
+print(DP)
+
+
+
+for j in range(len(DP)):
+    DP2.append(S.count(str(DP[j])))
+"""
+
+# for i in range(len(S)-3):
+#     s = S[i]
+#     for j in range(i+1,len(S)):
+#          s += S[j]
+#          if j >= 3:
+#              if int(s) % 2019 == 0:
+#                  cnt += 1
+#              else:
+#                  pass
+#          else:
+#              pass
+#print(sum(DP2))
+
+
+"""#C - gacha
+N = int(input())
+a = [str(input()) for i in range(N)]
+
+print(len(set(a)))"""
+
+"""#B - Battle
+A,B,C,D= map(int, input().split())
+
+a = A//D
+if A%D > 0:
+    a += 1
+
+b = C//B
+if C%B > 0:
+    b += 1
+
+if a >= b:
+    print("Yes")
+else:
+    print("No")
+"""
+
+"""#A - Sheep and Wolves
+S,W= map(int, input().split())
+if S <= W:
+    print("unsafe")
+else:
+    print("safe")"""
+"""#C - management
+import collections
+N = int(input())
+A =list(map(int, input().split()))
+A_n = collections.Counter(A)
+
+for i in range(N):
+    print(A_n[i+1])"""
+
+
+"""#B - Homework
+N,M= map(int, input().split())
+A =list(map(int, input().split()))
+
+if sum(A) <= N:
+    print(N-sum(A))
+else:
+    print(-1)"""
+
+"""#A - Circle Pond
+import math
+R =int(input())
+print(2*math.pi*R)"""
+
+"""#D - RGB Triplets
+N = int(input())
+S =input()
+DP = [0]*len(S)
+for i in range(N-2):
+    for j in range(N-1):
+        if S[i] != S[j]:
+            DP[i] = S[i]
+
+print(DP)"""
+
+"""#C - Sum of gcd of Tuples (Easy)
+K = int(input())
+DP =[]
+ans = 0
+import math
+# from functools import reduce
+# def gcd(*numbers):
+#     return reduce(math.gcd, numbers)
+
+
+# def gcd_list(numbers):
+#     return reduce(math.gcd, numbers)
+
+for i in range(1, K + 1):
+    for j in range(1, K + 1):
+        a = math.gcd(i,j)
+        for k in range(1,K+1):
+            b = math.gcd(a,k)
+            ans += b
+
+print(ans)
+"""
+"""#B - FizzBuzz Sum
+N = int(input())
+sum = 0
+for i in range(1,N+1):
+    if i % (3*5) ==0:
+        pass
+        #sum += i
+        #print("FizzBuzz")
+    elif i % 3 == 0:
+        pass
+        #sum += i
+        #print("Fizz")
+    elif i % 5 == 0:
+        pass
+        #sum += i
+        #print("Buzz")
+    else:
+        sum += i
+print(sum)"""
+
+"""#A - Lucky 7
+N = str(input())
+if N[0] == "7" or N[1] == "7" or N[2] == "7":
+    print("Yes")
+else:
+    print("No")"""
+
+"""N = int(input())
+def make_divisors(n):
+    divisors = []
+    for i in range(1, int(n**0.5)+1):
+        if n % i == 0:
+            divisors.append(i)
+            if i != n // i:
+                divisors.append(n//i)
+
+    # divisors.sort()
+    return divisors
+
+a = sorted(make_divisors(N))
+print(a)"""
+
+"""#E - Yutori
+N,K,C= map(int, input().split())
+S = input()
+DP =[]
+NG = -1
+for i in range(N):
+    if S[i] == 'o' and i > NG:
+        DP.append(i+1)
+        NG = i+C
+    else:
+        pass
+print(DP)
+
+#for j in range(len(DP))"""
+
+#D - Lunlun Number
+# K = int(input())
+# lst = []
+# while K > 0:
+#     lst.append(K%10)
+#     K //= 10 # 必須
+# lst.reverse()
+# print(lst)
+#
+# K = input()
+# ans = 0
+# DP= []
+# for i in range(len(N)):
+#     ans = S[i]
+#
+#
+
+
+
+"""#C - Replacing Integer
+N,K= map(int, input().split())
+a = N % K
+if a <= abs(a-K):
+    print(a)
+else:
+    print(abs(a-K))"""
+
+"""#B - Popular Vote
+N,M= map(int, input().split())
+A =list(map(int, input().split()))
+tmp = 0
+for i in range(N):
+    if A[i] >= (sum(A)/(4*M)):
+        tmp += 1
+    else:
+        pass
+
+if tmp >= M:
+    print("Yes")
+else:
+    print("No")"""
+
+
+"""#A - ABC Swap
+A,B,C= map(int, input().split())
+
+print(C,A,B)"""
+
+"""#E - Red and Green Apples
+X,Y,A,B,C= map(int, input().split())
+a =sorted(list(map(int, input().split())),reverse=True)
+b =sorted(list(map(int, input().split())),reverse=True)
+c =sorted(list(map(int, input().split())),reverse=True)
+print(a,b,c)
+DP_a =a[:X]
+DP_b =b[:Y]
+print(DP_b)
+DP_a.extend(DP_b)
+DP_a.extend(c)
+ans = sorted(DP_a,reverse=True)
+print(sum(ans[:X+Y]))"""
+
+# j = 1
+# k = 1
+# a_s =sum(a[:X])
+# b_s =sum(b[:Y])
+#
+# for i in range(C):
+#     if c[i] > a[X-j] or c[i] > b[Y-k]:
+#         if c[i] > a[X-j] and a[X-j] > b[Y-k]:
+#             j += 1
+#             if j >= X:
+#                 DP_a.append(c[i])
+#             else:
+#                 pass
+#         elif c[i] > b[Y-k] :
+#             k += 1
+#             if k >= Y:
+#                 DP_b.append(c[i])
+#             else:
+#                 pass
+#         else:
+#             pass
+#     else:
+#         break
+#
+# a_s = a_s-sum(a[X-len(DP_a):X])+sum(DP_a)
+# b_s = b_s-sum(b[Y-len(DP_b):Y])+sum(DP_b)
+
+
+
+
+"""#D - Line++
+N,X,Y= map(int, input().split())
+ans=[]
+for i in range(N):
+    if i ==0:
+        ans.append(N)"""
+
+
+"""#C - Traveling Salesman around Lake
+K,N= map(int, input().split())
+A =list(map(int, input().split()))
+B =[]
+ans = 0
+for i in range(N-1):
+    B.append(A[i+1]-A[i])
+    ans += A[i+1]-A[i]
+B.append(abs(K-A[N-1]+A[0]))
+ans = K-max(B)
+print(ans)"""
+
+"""#B - Golden Coins
+X = int(input())
+
+ans1 = X // 500
+ans2 = (X - 500*ans1)//5
+
+print(ans1*1000+ans2*5)"""
+
+
+"""#A - Coffee
+S =input()
+if S[2] == S[3] and S[4] == S[5]:
+    print("Yes")
+else:
+    print("No")"""
+
+"""#D - Banned K
+import collections
+from collections import defaultdict
+d = defaultdict(list)
+import copy
+N = int(input())
+A = list(map(int, input().split()))
+tmp = []
+
+a = collections.Counter(A)
+print(a)
+for k,v in a.items():
+    v_1 = ((v - 1) * (v - 2) )// 2
+    v = (v*(v-1))//2
+    d[k].append(v)
+    d[k].append(v_1)
+    print(k,v,v_1)
+
+print(d)
+print(d[1])
+
+for i in range(N):
+    print(d[A[i]][1] + sum(d.values())-d[A[i]][0])"""
+
+
+
+
+
+# for i in range(N):
+#     tmp = A[:]
+#     tmp.pop(i)
+#     t = collections.Counter(tmp)
+#
+#
+#     print(t)
+#     tmp.clear()
+
+
+
+"""#C - Maximum Volume
+L=int(input())
+V = (L/3)**3
+# for i in range(1,L):
+#     for j in range(1,L-i):
+#         if L-i-j > 0:
+#             tmp = i*(L-i)*(L-i-j)
+#             if tmp >= V:
+#                 V = tmp
+#             else:
+#                 pass
+#         else:
+#             pass
+print(V)"""
+
+"""#B - String Palindrome
+S = input()
+
+for i in range((len(S)-1)//2):
+    if S[i] == S[i+(len(S)+3)//2-1]:
+        pass
+    else:
+        print("No")
+        exit()
+print("Yes")
+"""
+
+"""#A - The Number of Even Pairs
+N,M= map(int, input().split())
+
+ans = (N*(N-1))//2 +(M*(M-1))//2
+
+print(ans)"""
+
+"""def c(n,k):
+  return 1 if(k<=0 or n<=k) else c(n-1, k-1) + c(n-1, k)
+
+A = [c(N-2,j) for j in range(N-2+1)]
+for i in range(N-2+1):
+    if i % 2 != 0:
+        A[i] = -1*A[i]
+    else:
+        pass
+
+for i in range(N-1):
+    ans += A[i]*a_2[i]
+
+
+print(A)
+print(a_2)"""
+
+
+
+"""#A - Range Flip Find Route
+H,W= map(int, input().split())
+
+s =list(input() for i in range(H))
+print(s)"""
+
+"""#D - String Equivalence
+N = int(input())
+
+if N == 1:
+    print("a")
+else:
+    for i in range(1,N):
+        chr_s = str(chr(i + 96))
+        for j in range(N):
+            chr_s += str(chr(j + 96))
+            print(chr_s)
+
+
+# for i in range(len(N)):
+#     chi
+"""
+"""
+#C - Sqrt Inequality
+# from decimal import *
+#
+# getcontext().prec = 20
+#
+# import math
+# a,b,c= map(int, input().split())
+# # if int(Decimal(a).sqrt())+ int(Decimal(b).sqrt()) < int(Decimal(c).sqrt()):
+# #     print("Yes")
+# # else:
+# #     print("No")
+
+#C - Sqrt Inequality
+import math
+a,b,c= map(int, input().split())
+
+if c >= a+b:
+#if float(math.sqrt(a))+ float(math.sqrt(b)) < float(math.sqrt(c)):
+    if 4*a*b < (c-a-b)**2:
+        print("Yes")
+    else:
+        print("No")
+else:
+    print("No")
+
+"""
+"""
+#B - Bishop
+import math
+H,W= map(int, input().split())
+print(int(math.ceil(H/2) * math.ceil(W/2) + math.floor(H/2)*math.floor(W/2)))
+"""
+# if H % 2 == 0 and W %2 == 0:
+#     print((H / 2) * (W /2))
+# elif H % 2 == 1 and W %2 == 1:
+#     print((H // 2  + 1) * (W // 2 + 1) -1 )
+
+
+
+#print(math.ceil(H/2) * math.ceil(W/2) + math.floor(H/2)*math.floor(W/2))
+"""
+#A - Kth Term
+S = int(input())
+A = [1, 1, 1, 2, 1, 2, 1, 5, 2, 2, 1, 5, 1, 2, 1, 14, 1, 5, 1, 5, 2, 2, 1, 15, 2, 2, 5, 4, 1, 4, 1, 51]
+
+print(A[S-1])"""
+
+"""#B - Nice Shopping
+A,B,M= map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+x =[list(map(int, input().split())) for i in range(M)]
+
+tmp_min = min(a)+min(b)
+
+for i in range(M):
+    tmp = a[x[i][0]-1]+b[x[i][1]-1] - x[i][2]
+    if tmp < tmp_min:
+        tmp_min = tmp
+    else:
+        pass
+
+print(tmp_min)"""
+
+
+
+"""#A - Hitachi String
+S = list(input())
+count = 0
+if len(S) % 2 == 1:
+    print("No")
+    exit()
+else:
+
+    for i in range(0,int(len(S)//2),2):
+        if S[i]+S[i+1] == "hi":
+            pass
+        else:
+            print("No")
+            exit()
+
+    print("Yes")"""
+
+
+"""#D - String Formation
+S=input()
+Q=int(input())
+query=[]
+for _ in range(Q):
+    query.append(input().split())
+
+flag = True
+t=""
+u=""
+
+for i in query:
+    if i[0]=="1":
+        u,t=t,u
+        flag = not flag
+#        S=S[::-1]
+    else:
+        if i[1]=="1":
+            t+=i[2]
+        else:
+            u+=i[2]
+if flag:
+    print(t[::-1]+S+u)
+else:
+    print(t[::-1]+S[::-1]+u)
+"""
+
+
+# S = list(str(input()))
+# Q = int(input())
+# q = [input().split() for i in range(Q)]
+#
+# #print(S)
+# #print(q)
+# tmp = 0
+# for i in range(Q):
+#     tmp1 = ""
+#     if q[i][0] == "1" and i == Q - 1 and tmp % 2 == 1:
+#         S = S[::-1]
+#     elif q[i][0] == '1':
+#         tmp += 1
+#        # tmp1 = S[0]
+#        # S[0] = S[-1]
+#        # S[-1] = tmp1
+#     else:
+#         if q[i][1] == "1":
+#             if tmp % 2 ==0:
+#                 S.insert(0,q[i][2])
+#             else:
+#                 S = S[::-1]
+#                 S.insert(0, q[i][2])
+#         else:
+#             if tmp % 2 ==0:
+#                 S.append(q[i][2])
+#             else:
+#                 S = S[::-1]
+#                 S.append(q[i][2])
+#
+# ans = ''.join(S)
+# print(ans)
+
+
+"""#C - Tax Increase
+import math
+A,B= map(int, input().split())
+for i in range(1,100*1000):
+    if math.floor(i * 0.08) == A and math.floor(i * 0.1) == B:
+        print(i)
+        exit()
+    else:
+        pass
+
+print(-1)"""
+
+
+"""#B - Count Balls
+N, A,B= map(int, input().split())
+
+a = N % (A+B)
+b = N // (A+B)
+if a <= A:
+    print(b*A+a)
+else:
+    print(b*A+A)"""
+
+"""#A - Station and Bus
+S = input()
+if S == "AAA" or S == "BBB":
+    print("No")
+else:
+    print("Yes")"""
+
+"""#C - Guess The Number
+N, M = map(int, input().split())
+s =[list(map(int, input().split())) for i in range(M)]
+
+s = list(map(list, set(map(tuple, s))))
+s.sort(key=lambda x: x[0],reverse = True)
+if s[0][0] == N:
+    if s[0][1] == 0 and N != 1:
+        print(-1)
+        exit()
+    else:
+        pass
+else:
+    print(-1)
+    exit()
+
+s.sort(key=lambda x: x[0])
+
+#print(s)
+ans = [0 for a in range(3)]
+ans2 = str("")
+t_b = [1 for a in range(3)]
+tmp_a = 0 #桁
+
+
+if len(s) == 1:
+    if s[0][0] == 1 and s[0][1] == 0:
+        print(0)
+        exit()
+    elif s[0][0] == 1 and s[0][1] > 0:
+        print(s[0][1])
+        exit()
+
+for i in range(len(s)):
+    if ans[s[i][0]-1] == 0:
+        if s[i][1] > 0:
+            ans[s[i][0] - 1] = s[i][1]
+    else:
+        print(-1)
+        exit()
+
+if N == 2:
+    ans2 = str(ans[1])+str(ans[2])
+elif N == 3:
+    ans2 += str(ans[0])+str(ans[1])+str(ans[2])
+else:
+    ans2 = str(ans[2])
+
+print(int(ans2))
+"""
+
+"""#B - Bingo
+A =[list(map(int, input().split())) for i in range(3)]
+N = int(input())
+b = [int(input()) for j in range(N)]
+A_n = [[0 for a in range(3)] for c in range(3)]
+
+for k in range(3):
+    for l in range(3):
+        for m in range(N):
+            if A[k][l] == b[m]:
+                A_n[k][l] = 1
+            else:
+                pass
+
+if A_n[0][0]+A_n[0][1]+A_n[0][2]==3 or A_n[1][0]+A_n[1][1]+A_n[1][2] == 3 or A_n[2][0]+A_n[2][1]+A_n[2][2] == 3:
+    print("Yes")
+elif A_n[0][0]+A_n[1][0]+A_n[2][0]==3 or A_n[0][1]+A_n[1][1]+A_n[2][1] == 3 or A_n[0][2]+A_n[1][2]+A_n[2][2] == 3:
+    print("Yes")
+elif A_n[0][0]+A_n[1][1]+A_n[2][2]==3 or A_n[0][2]+A_n[1][1]+A_n[2][0]==3:
+    print("Yes")
+else:
+    print("No")"""
+
+
+
+
+
+"""#A - Duplex Printing
+N = int(input())
+if N%2 == 0:
+    print(int(N/2))
+else:
+    print(int(N/2)+1)"""
+
+"""# D - Bouquet
 n, a, b = map(int, input().split())
 from operator import mul
 from functools import reduce
 MOD = 10**9 + 7
 
 def cmb(n, k, mod, fac, ifac):
-    """
-    nCkを計算する
-    """
-    k = min(k, n-k)
-    return fac[n] * ifac[k] * ifac[n-k] % mod
-
-
-def make_tables(mod, n):
-    """
-    階乗テーブル、逆元の階乗テーブルを作成する
-    """
-    fac = [1, 1] # 階乗テーブル・・・(1)
-    ifac = [1, 1] #逆元の階乗テーブル・・・(2)
-    inverse = [0, 1] #逆元テーブル・・・(3)
+#    
+#     nCkを計算する
+#     
+#     k = min(k, n-k)
+#     return fac[n] * ifac[k] * ifac[n-k] % mod
+#
+#
+# def make_tables(mod, n):
+#     
+#     階乗テーブル、逆元の階乗テーブルを作成する
+#     
+#     fac = [1, 1] # 階乗テーブル・・・(1)
+#     ifac = [1, 1] #逆元の階乗テーブル・・・(2)
+#     inverse = [0, 1] #逆元テーブル・・・(3)
 
     for i in range(2, n+1):
         fac.append((fac[-1] * i) % mod)
@@ -34,7 +952,7 @@ for l in range(n):
 
 ans = ((tmp2 -1) - cmb(n, a, MOD, fac, ifac)- cmb(n, b, MOD, fac, ifac))
 print(ans)
-
+"""
 """#C - Rally
 N = int(input())
 X = list(map(int, input().split()))
