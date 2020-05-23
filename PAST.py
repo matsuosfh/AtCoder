@@ -1,4 +1,132 @@
-# F - DoubleCamelCase Sort
+#F - 回文行列
+from collections import Counter
+N = int(input())
+s = [str(input()) for i in range(N)]
+t =""
+DP = []
+print(s)
+for i in range(N):
+    t += s[i]
+print(t)
+counter = Counter(t).most_common()
+print(counter)
+print(counter[0][1])
+
+if N % 2 == 0:
+    N_1 = N
+    for j in range(len(counter)):
+        if counter[j][1] % 2 == 0:
+            if N_1 - counter[j][1] >= 0:
+                DP.append(counter[j])
+                N_1 -= counter[j][1]
+            else:
+                pass
+            if N_1 <= 0:
+                break
+            else:
+                pass
+print(DP)
+
+"""#E - スプリンクラー
+N,M,Q = map(int, input().split())
+if M >= 1:
+    v = [list(map(int, input().split())) for i in range(M)]
+else:
+    pass
+c = list(map(int, input().split()))
+s = [list(map(int, input().split())) for i in range(Q)]
+DP = [[] for p in range(N)]
+
+if M == 0:
+    DP = [[]]
+elif M==1:
+    DP[v[0][0] - 1].append(v[0][1])
+    DP[v[0][1] - 1].append(v[0][0])
+else:
+    for i in range(M):
+        DP[v[i][0]-1].append(v[i][1])
+        DP[v[i][1]-1].append(v[i][0])
+
+for k in range(Q):
+    if s[k][0] == 1:
+        print(c[s[k][1]-1])
+        if len(DP[s[k][1]-1]) == 0:
+            pass
+        elif len(DP[s[k][1]-1]) == 1:
+            c[DP[s[k][1]-1][0]-1] = c[s[k][1]-1]
+        else:
+            for l in range(len(DP[s[k][1]-1])):
+                c[DP[s[k][1]-1][l]-1] = c[s[k][1]-1]
+    else:
+        print(c[s[k][1] - 1])
+        c[s[k][1] - 1] = s[k][2]"""
+
+
+"""#D - 電光掲示板
+N = int(input())
+s = [list(map(str,input().split())) for i in range(5)]
+print(s)
+
+for i in range(5)
+    for j in range(N):
+s[1][2] s[2][2] s[3][2]=="."
+"""
+
+
+
+
+"""#C - 等比数列
+import math
+A,R,N = map(int, input().split())
+T = math.log(1000000000)
+if math.log(A)+(N-1)*math.log(R) >T:
+    print("large")
+else:
+    print(A*(R**(N-1)))"""
+
+
+"""#B - ダイナミック・スコアリング
+N,M,Q = map(int, input().split())
+s = [list(map(int, input().split())) for i in range(Q)]
+DP = [[[0] * M for k in range(2)]for l in range(N)]
+DP_m = [N]*M
+print(DP)
+for i in range(Q):
+    if s[i][0] == 1:
+        for j in range(M):
+            if DP[s[i][1]-1][1][j] == 1:
+                DP[s[i][1]-1][0][j] = DP_m[j]
+            else:
+                pass
+        print(sum(DP[s[i][1]-1][0]))
+    else:
+        if DP_m[s[i][2]-1] > 0:
+            DP_m[s[i][2]-1] -= 1
+        else:
+            pass
+
+        DP[s[i][1] - 1][1][s[i][2] - 1] = 1"""
+
+
+
+
+
+
+
+
+"""#A - ケース・センシティブ
+s=input()
+t=input()
+
+if s == t:
+    print("same")
+elif s.lower()==t.lower():
+    print("case-insensitive")
+else:
+    print("different")"""
+
+
+"""# F - DoubleCamelCase Sort
 S = str(input())
 T = ""
 DP =[]
@@ -19,7 +147,7 @@ for i in range(len(S)):
         pass
 DP.sort(key=str.lower)
 ans=''.join(DP)
-print(ans)
+print(ans)"""
 
 """# E - SNS のログ / Restore
 N,Q = map(int, input().split())

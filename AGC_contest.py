@@ -1,4 +1,11 @@
-# A - Table Tennis Training
+#A - Pay to Win
+T = int(input())
+N,A,B,C,D = list(map(int, input().split()) for i in range(T))
+
+print(N,A,B,C,D)
+
+
+"""# A - Table Tennis Training
 N,A,B = map(int, input().split())
 
 if (B-A) % 2 == 0:
@@ -11,4 +18,4 @@ else:
     ansC2 = int((B - A-1) // 2)
     ans = min(N-B,A-1) +1+ ansC2
 
-print(int(ans))
+print(int(ans))"""
