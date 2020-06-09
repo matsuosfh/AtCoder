@@ -1,8 +1,113 @@
-# #D- .. (Double Dots)
-N,M = map(int, input().split())
-C =[list(map(int, input().split())) for i in range(M)]C.sort(key=lambda x: x[1])
 
 
+"""#D - Div Game
+N = int(input())
+
+def factorization(n):
+    arr = []
+    temp = n
+    for i in range(2, int(-(-n**0.5//1))+1):
+        if temp%i==0:
+            cnt=0
+            while temp%i==0:
+                cnt+=1
+                temp //= i
+            arr.append([i, cnt])
+
+    if temp!=1:
+        arr.append([temp, 1])
+
+    if arr==[]:
+        arr.append([n, 1])
+
+    return arr
+A = factorization(N)
+#print(factorization(N))
+ans = 0
+if N == 1:
+    print(0)
+    exit()
+
+for i in range(len(A)):
+    if A[i][1] == 1:
+        ans += 1
+    else:
+        k = A[i][1]
+        for j in range(A[i][1]):
+            if k-j > j:
+                k -= j
+                ans += 1
+            else:
+                break
+print(ans)"""
+
+"""#C - Multiplication 3
+from decimal import Decimal
+A,B= map(str,input().split())
+A2 = Decimal(A)
+B2 = Decimal(B)
+#print(A*B*100000)
+print(int(A2*B2))"""
+
+#C - Multiplication 3
+
+A,B= input().split()
+A = int(A)
+B = float(B)
+B = int(B*1000)
+#print(A*B*100000)
+print(int(A*B/1000))
+
+"""#B - Multiplication 2
+N = int(input())
+A = list(map(int, input().split()))
+A.sort()
+ans = 1
+for i in range(N):
+    if A[i] == 0:
+        print(0)
+        exit()
+    else:
+        pass
+    ans *= A[i]
+    if ans <= 1000000000000000000:
+        pass
+    else:
+        print(-1)
+        exit()
+print(ans)"""
+
+"""#A - Multiplication 1]
+A,B= map(int, input().split())
+print(A*B)"""
+
+"""#C - Folia
+N = int(input())
+A = list(map(int, input().split()))
+ans = 0
+for i in range(N,0,-1):
+    if 2**i >= ans:
+        ans += A[i]+ans
+    else:
+        ans += 2**i-A[i]
+
+
+print(ans)"""
+
+
+
+"""#B - Postdocs
+T = input()
+print(T.replace('?','D'))"""
+
+
+
+"""#A - Study Scheduling
+H1,M1,H2,M2,K = map(int, input().split())
+H=(H2-H1)*60
+M=(M2-M1)
+ans = K-(H+M)
+print(abs(ans))"""
 
 
 """#C - : (Colon)

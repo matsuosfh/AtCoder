@@ -1,6 +1,14 @@
-#C - Candles
-N,K = map(int, input().split())
-a =list(map(int, input().split()))
+#C - March
+N = int(input())
+S = [input() for i in range(N)]
+count = 0
+for i in range(N):
+    if S[i][0] == "M" and S[i][0] == "A" and S[i][0] == "R" and S[i][0] == "C" and S[i][0] == "H":
+        count += 1
+    else:
+        pass
+
+
 
 
 """#C - Attention
