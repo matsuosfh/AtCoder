@@ -1,4 +1,142 @@
+#
 
+
+"""#D - Not Divisible
+N= int(input())
+A= list(map(int,input().split()))
+A.sort(reverse=True)
+a = 0
+ans = 0
+DP = []
+for i in range(len(A)):
+    for j in range(i+1,len(A)):
+        if A[i]/2 >= A[j]:
+            DP.append(j)
+            break
+        else:
+            pass
+if len(DP) == 0:
+    print(0)
+    exit()
+
+DP.append(N)
+print(DP)
+print(A)
+
+
+
+for k in range(len(A)):
+    a = 0
+    for l in range(DP[k],len(A)):
+        if A[k] % A[l] == 0 :
+            break
+        else:
+            a += 1
+    if a == N - DP[k]:
+        ans += 1
+    else:
+        pass
+
+print(ans)"""
+
+# for i in range(int(max(A)**0.5)):
+#     for j in range(len(A)):
+#         if A[j] % i == 0:
+
+
+
+"""#C - Forbidden List
+X,N= map(int,input().split())
+p= list(map(int,input().split()))
+A= list(range(-200,200))
+#print(A)
+for i in range(N):
+    A.remove(p[i])
+
+D = 201
+ans = -100
+for j in range(len(A)):
+    if D > abs(X - A[j]):
+        D = abs(X - A[j])
+        ans = A[j]
+
+    else:
+        pass
+print(ans)"""
+
+
+"""#B - Crane and Turtle
+X,Y= map(int,input().split())
+
+if 2*X-Y/2 >= 0 and 2*X-Y/2 <= 50 and Y % 2 == 0:
+    print("Yes")
+else:
+    print("No")
+"""
+"""#A - Five Variables
+A= list(map(int,input().split()))
+
+for i in range(len(A)):
+    if A[i] == 0:
+        print(i+1)
+        exit()
+
+print(0)"""
+
+
+
+"""#C - Lamps
+N,K= map(int,input().split())
+A = list(map(int, input().split()))
+# DP = [0]*N
+# DP2 = [0]*N
+DP = [0]*N
+DP2 = [[0] *N for p in range(N)]
+for _ in range(K):
+    for i in range(N):
+        for j in range(A[i],-A[i]-1,-1):
+            if A[i] == 0:
+                DP[i] += 1
+            else:
+                pass
+            if i != i-j and i-j >= 0 and i-j < N and DP2[i-j][i] ==0:
+                DP[i-j] += 1
+                DP2[i-j][i] = 1
+
+            else:
+                pass
+    print(DP)
+    for k in range(len(DP)):
+        A[k] += DP[k]
+    DP = [0]*N
+    print(DP2)
+    #print(A)
+
+L=[str(a) for a in A]
+L=" ".join(L)
+print(L)"""
+
+
+
+"""#B - Tag
+A,V= map(int,input().split())
+B,W= map(int,input().split())
+T= int(input())
+
+k = abs(B-A)
+a = V*T
+b = W*T
+
+
+
+if a >= k + b:
+    print("YES")
+else:
+    print("NO")"""
+
+"""#A - Nickname
+S = input()
+print(S[:3])"""
 
 """#D - Div Game
 N = int(input())
@@ -49,14 +187,14 @@ B2 = Decimal(B)
 #print(A*B*100000)
 print(int(A2*B2))"""
 
-#C - Multiplication 3
+"""#C - Multiplication 3
 
 A,B= input().split()
 A = int(A)
 B = float(B)
 B = int(B*1000)
 #print(A*B*100000)
-print(int(A*B/1000))
+print(int(A*B/1000))"""
 
 """#B - Multiplication 2
 N = int(input())
