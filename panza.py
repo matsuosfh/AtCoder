@@ -1,4 +1,35 @@
-#C024:ミニ・コンピュータ
+#B079:相性チェック
+A, B = map(str, input().split())
+a =[]
+b =[]
+alpha2num = lambda c: ord(c) - ord('A') + 1 -32
+
+for i in range(len(A)):
+    a.append(alpha2num(A[i]))
+
+for j in range(len(B)):
+    b.append(alpha2num(B[j]))
+
+a.extend(b)
+print(a)
+a_2 = []
+while len(a) == 1:
+    for l in range(len(a)):
+        a_2.append(a[l] +a[l+1])
+
+a =[]
+b =[]
+for i in range(len(A)):
+    a.append(alpha2num(A[i]))
+
+for j in range(len(B)):
+    b.append(alpha2num(B[j]))
+
+b.extend(a)
+print(b)
+
+
+"""#C024:ミニ・コンピュータ
 N = int(input())
 s = [list(input().split()) for j in range(N)]
 DP = [0,0]
@@ -10,7 +41,7 @@ for i in range(N):
         DP[1] = DP[0]+int(s[i][1])
     else:
         DP[1] = DP[0]-int(s[i][1])
-print(DP[0],DP[1])
+print(DP[0],DP[1])"""
 
 """#D154:画面の構成
 N =int(input())
