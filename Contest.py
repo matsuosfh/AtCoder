@@ -1,4 +1,807 @@
-#B - Many 110
+#
+
+"""#D - Poker
+import collections
+K = int(input())
+S = input()
+T = input()
+N = [K]*9
+S_N = []
+T_N = []
+
+#Sの手
+for i in range(1,10):
+    a = str(i)
+    S_N.append(S.count(a))
+    N[i-1] -= S.count(a)
+print(S_N)
+print(N)
+S_1 = 0
+for j in range(9):
+    S_1 += (j+1) * 10**S_N[j]
+
+
+
+#Tの手
+for i in range(1,10):
+    b = str(i)
+    T_N.append(T.count(b))
+    N[i - 1] -= T.count(b)
+print(T_N)
+
+T_1 = 0
+for j in range(9):
+    T_1 += (j+1) * 10**T_N[j]
+
+print(S_1)
+print(T_1)
+print(N)
+
+
+for i in range(N):"""
+
+
+
+# for i in range(1,10):
+#     for j in range(0,4):
+#         if i == s[]
+
+"""#C - Unexpressed
+N = int(input())
+A = []
+
+for i in range(2,int(N**0.5)+2):
+    for j in range(2,35):
+        if i**j <= N:
+            A.append(i**j)
+        else:
+            break
+A =set(A)
+B = len(A)
+#print(A)
+print(N-B)"""
+
+
+
+
+"""#B - Play Snuke
+N = int(input())
+A =[list(map(int, input().split())) for _ in range(N)]
+
+m = 10**10
+for i in range(N):
+    d = A[i][2] - A[i][0]
+    if d > 0:
+        m =min(m,A[i][1])
+
+if m == 10**10:
+    print(-1)
+else:
+    print(m)"""
+
+
+"""#A - Discount
+A,B = map(int, input().split())
+print((A-B)/A*100)
+
+"""
+"""#B - A^B^C
+A,B,C = map(int, input().split())
+DP = []
+for i in range(1,11):
+    DP.append((A**i) % 10)
+
+a = DP[0]
+for j in range(1,len(DP)):
+    if DP[j] == a:
+        count = j
+        break
+
+print(DP)
+print(count)
+print(B % count,C % count)
+x = ((B % count) ** (C % count))
+
+
+
+print(x)
+if (B % count) == 0 and (C % count) == 0:
+    print(DP[count-1])
+    exit()
+
+
+if x % count == 0:
+    print(DP[count-1])
+else:
+    x = x % count
+    print(DP[x-1])"""
+
+
+"""#A - A*B*C
+N = int(input())
+ans = 1
+
+def factorization(n):
+    arr = []
+    temp = n
+    a = 0
+    for i in range(2, int(-(-n**0.5//1))+1):
+        if temp%i==0:
+            cnt=0
+            while temp%i==0:
+                cnt+=1
+                temp //= i
+            arr.append([i, cnt])
+            a += cnt
+
+    if temp!=1:
+        arr.append([temp, 1])
+
+    if arr==[]:
+        arr.append([n, 1])
+
+    return a
+for i in range(2,N):
+     = factorization(i)
+    fa
+
+
+
+print(factorization(N))"""
+
+
+"""#B - -- - B
+B,C = map(int, input().split())
+
+if C == 1:
+    print(1+1)
+    exit()
+elif C == 2:
+    print(1+2)
+    exit()
+else:
+    pass
+
+if B > 0:
+    print(C+abs(B-2)*2)
+else:
+    print(C + abs(B-2) * 2+1)
+"""
+
+"""# A - B = C
+T = int(input())
+A =[list(map(int, input().split())) for _ in range(T)]
+
+for i in range(T):
+    print(((A[i][1]-A[i][0]-1)*(A[i][1]-A[i][0]))//2)
+
+"""
+
+
+"""#D - Circle Lattice Points
+import math
+X,Y,R = map(float, input().split())
+X =X*10**4
+Y =Y*10**4
+R =R*10**4
+
+ans = 0
+x_1 = math.ceil(X-R)
+x_2 = math.floor(X+R)
+x_1 = int(X-R)
+x_2 = int(X+R)
+print(x_1,x_2)
+#
+# x_1 = int(X-R)
+# x_2 = int(X+R)
+# y_1 = int(Y-R)
+# y_2 = int(Y+R)
+#
+# print(x_1,x_2,y_1,y_2)
+
+# for i in range(x_1,x_2+1):
+#     for j in range(y_1,y_2+1):
+#         if (i-X)**2 + (j-Y)**2 <= R**2:
+#             ans += 1
+#         else:
+#             pass
+
+for i in range(x_1,x_2+1):
+    p = (R**2-(X-i)**2)**0.5
+    # low = int(math.ceil(p-R))
+    # high = int(math.floor(p+R))
+    low = math.ceil(Y-p)
+    high = math.floor(p+Y)
+    ans += high - low
+
+print(ans)
+#
+# for j in range(y_1, y_2 + 1):
+#
+#         if (i-X)**2 + (j-Y)**2 <= R**2:
+#             ans += 1
+#         else:
+#             pass
+# print(ans)
+"""
+
+"""#C - Digital Graffiti
+H,W = map(int, input().split())"""
+
+
+"""#B - Remove It
+N,X = map(int, input().split())
+A = list(map(int,input().split()))
+B =[]
+for i in range(N):
+    if A[i] == X:
+        pass
+    else:
+        B.append(A[i])
+
+print(*B)
+"""
+"""#A - Vanishing Pitch
+V,T,S,D = map(int, input().split())
+
+if D >= V*T and V*S >= D:
+    print("No")
+else:
+    print("Yes")"""
+
+"""#D - Staircase Sequences
+N = int(input())
+ans = 0
+T = 0
+for i in range(1,int(N**0.5)+1):
+    if N % i == 0 and (i-1)%2 == 0:
+        ans += 1
+    elif (2*N - (i**2-i))%(2*i) == 0:
+        ans += 1
+    else:
+        pass
+
+    if (N / i) - (i-1)/2 == 0:
+        if N % i == 0 or (i-1)%2 == 0:
+            ans += 1
+    else:
+        pass
+
+# for i in range(int(N**0.5)+1):
+#     if ((i+1)**2-(i+1)) % 2 == 0 and ((i+1)**2-(i+1)) % 2 < N:
+#         ans += 1
+#     else:
+#         pass
+print(ans*2)"""
+
+
+# N=int(input())
+# i=2
+# ans=dict()
+# div_sum=1
+#
+# while i*i <=N:
+# 	while n%i==0:
+# 		n=n//i
+# 		if i in ans:
+# 			ans[i]+=1
+# 		else:
+# 			ans[i]=1
+# 	i+=1
+# if n!=1:
+# 	ans[n]=1
+#
+# ans_list=list(ans.items())
+# for j in ans_list:
+# 	div_sum*=j[1]+1
+# print(ans)
+#
+# N=int(input())
+# yaku=list()
+# i=1
+# while i*i<=N:
+# 	if N%i==0:
+# 		yaku.append(i)
+# 		yaku.append(N//i)
+# 	i+=1
+# yaku.sort()
+# print(yaku)
+# ans = 0
+# for i in range(len(yaku)):
+#     if (yaku[i]-1) % 2 == 0:
+#         ans += 1
+#     else:
+#         pass
+# print(ans)
+
+
+"""#C - Bowls and Dishes
+N,M = map(int, input().split())
+A =[list(map(int, input().split())) for _ in range(M)]
+K = int(input())
+C =[list(map(int, input().split())) for _ in range(K)]
+
+DP = [0]*N
+for i in range(K):
+"""
+"""#B - Magic 3
+N,S,D= map(int, input().split())
+A =[list(map(int, input().split())) for _ in range(N)]
+
+for i in range(N):
+    if A[i][0] < S and A[i][1] > D:
+        print("Yes")
+        exit()
+    else:
+        pass
+
+print("No")
+"""
+
+"""#A - Very Very Primitive Game
+A,B,C= map(int, input().split())
+if C == 0:
+    if A-1>=B:
+        print("Takahashi")
+    else:
+        print("Aoki")
+
+else:
+    if B-1>=A:
+        print("Aoki")
+    else:
+        print("Takahashi")"""
+
+
+"""#C - オセロ
+N,Q= map(int, input().split())
+A =[list(map(int, input().split())) for _ in range(Q)]
+s = [0]*N
+for i in range(Q):
+    for j in range (abs(A[i][0]-A[i][1])):
+        if s[j] == 0:
+            s[j] = 1
+        else:
+            s[j] = 0
+
+print("".join([str(n) for n in s]))"""
+
+"""#B - ドローン
+S = input()
+T =int(input())
+x = 0
+y = 0
+z = 0
+for i in range(len(S)):
+    if S[i] == "L":
+        x -= 1
+    elif S[i] == "R":
+        x += 1
+    elif S[i] == "U":
+        y += 1
+    elif S[i] == "D":
+        y -= 1
+    else:
+        if T == 1:
+            z += 1
+        else:
+            z -= 1
+
+if T ==1:
+    ans = abs(x)+abs(y)+z
+else:
+    ans = max(abs(x)+abs(y)+z,abs(abs(x)+abs(y)+z)%2)
+
+print(ans)"""
+
+
+
+
+"""#C - 経路
+import math
+w,h= map(int, input().split())
+
+W = math.factorial(w-1)
+H = math.factorial(h-1)
+WH = math.factorial(w+h-2)
+W_H = W*H
+
+ans = (WH//W_H) % (10**9+7)
+print(ans)"""
+
+"""#B - ペア
+n =int(input())
+
+if n % 2 == 0:
+    print(n-1)
+else:
+    print(n+1)"""
+
+"""#A - テレビ
+w,h= map(int, input().split())
+if w/h == 4/3:
+    print("4:3")
+else:
+    print("16:9")"""
+
+"""#A - テスト
+x,y= map(int, input().split())
+if x < y:
+    print("Better")
+else:
+    print("Worse")
+"""
+
+"""#C - Mandarin Orange
+N = int(input())
+A = list(map(int,input().split()))
+ans = 0
+DP = 0
+for i in range(N):
+    DP = 0
+    for j in range(i,N):
+        if A[j] >= A[i]:
+            DP += A[i]
+        else:
+            DP = A[i] * (j-1 - i+1)
+            break
+
+
+    if DP >= ans:
+        ans = DP
+if A[N-1] > ans:
+    ans = A[N-1]
+
+print(ans)"""
+
+"""#B - Alcoholic
+N,X= map(int, input().split())
+A = [list(map(float, input().split())) for i in range(N)]
+alc = 0
+X = float(X)
+for i in range(N):
+    alc += A[i][0]*A[i][1]
+    if alc > X*100:
+        print(i+1)
+        exit()
+    else:
+        pass
+
+print(-1)"""
+
+
+"""#A - Slot
+C = input()
+if C[0]==C[1] == C[2]:
+    print("Won")
+else:
+    print("Lost")"""
+
+"""#B - Mex Boxes
+N,K= map(int,input().split())
+A = list(map(int,input().split()))
+A.sort()
+B = []
+cn = 0
+
+maxA =max(A)
+ans = 0
+n = A.count(0)
+if K >= n:
+    c = n
+else:
+    c = K
+
+
+
+
+for i in range(maxA+1):
+    if A.count(0) == 0:
+        break
+
+    if A.count(i) < A.count(i+1):
+        cn = A.count(i)
+        B.append(i + 1)
+    elif
+
+    if A.count(i) == 1:
+        B.append(i+1)
+
+    if A.count(i) == 0:
+        break
+
+print(B)
+
+print(sum(B))"""
+
+
+# for _ in range(c):
+#     if A.count(0) == 0:
+#         break
+#     for i in range(maxA+1):
+#         if A.count(i) == 0:
+#             break
+#         m = i+1
+#         if A.count(m) == 0:
+#             ans += m
+#             A.remove(i)
+#         else:
+#             if A.count(i) == 0:
+#                 break
+#             else:
+#                 A.remove(i)
+
+
+"""#A - Two Sequences 2
+N = int(input())
+A = list(map(int,input().split()))
+B = list(map(int,input().split()))
+A_2 =[]
+C = []
+maxA=0
+max = 0
+
+for i in range(N):
+    if maxA <= A[i]:
+        maxA = A[i]
+    else:
+        pass
+    A_2.append(maxA)
+#print(A_2)
+
+for j in range(N):
+    if max <= A_2[j]*B[j]:
+        max = A_2[j]*B[j]
+    C.append(max)
+
+for k in range(len(C)):
+    print(C[k])
+"""
+
+""""#B - Reversible Cards
+N = int(input())
+A =[list(map(int, input().split())) for _ in range(N)]
+ANS = [0]*N
+
+for i in range(N):
+    if
+    """
+"""#
+N,M= map(int,input().split())
+
+# ans = ((10**N)//M)%M
+# print(ans)
+for M in range(1,21):
+    ans = ((10**N)//M)%M
+    print(M,ans)"""
+
+"""#D - Choose Me
+N = int(input())
+A =[list(map(int, input().split())) for _ in range(N)]
+A_sum = 0
+B_sum = 0
+d = []
+e = []
+for i in range(N):
+    A_sum += A[i][0]
+    B_sum += A[i][1]
+    d.append(A[i][0])
+    e.append(A[i][0]+A[i][1])
+SUM_AB = A_sum +B_sum
+
+d.sort(reverse=True)
+e.sort(reverse=True)
+d_1 = 0
+ans = 0
+B_sum = 0
+
+for j in range(N):
+    B_sum += e[j]
+    ans += 1
+    if B_sum > (A_sum/ 2):
+        print(ans)
+        exit()
+    else:
+        pass
+
+
+print(A_sum,B_sum,d)"""
+
+
+
+"""#C - 1-SAT
+N = int(input())
+S = [input() for _ in range(N)]
+S_1 = []
+U = []
+for i in range(N):
+    if S[i][0] == "!":
+        U.append(S[i].replace("!",""))
+
+    else:
+        S_1.append(S[i])
+#print(U)
+#print(S_1)
+a = set(U) & set(S_1)
+
+V = len(a)
+if V == 0:
+    print("satisfiable")
+else:
+    print(a.pop())"""
+
+"""#B - Gentle Pairs
+N = int(input())
+A =[list(map(int, input().split())) for _ in range(N)]
+count = 0
+
+for i in range(N):
+    for j in range(i+1,N):
+        t = abs(A[i][1]-A[j][1]) / abs(A[i][0]-A[j][0])
+        if t <= 1:
+            count += 1
+        else:
+            pass
+
+print(count)
+"""
+
+"""#A - Large Digits
+A,B = map(str,input().split())
+
+sum_A = int(A[0])+int(A[1])+int(A[2])
+sum_B = int(B[0])+int(B[1])+int(B[2])
+
+print(max(sum_A,sum_B))
+"""
+"""#E - Throne
+T = int(input())
+A =[list(map(int, input().split())) for _ in range(T)]
+
+for i in range(T):
+    if (A[i][0] - A[i][1]) > A[i][2]:
+        if (A[i][0] - A[i][1]) % A[i][2] != 0:
+            print(-1)
+        else:
+            print((A[i][0] - A[i][1]) // A[i][2])
+    else:
+        if A[i][2] % (A[i][0] - A[i][1]) != 0:
+            print(-1)
+        else:
+            print(A[i][2] // (A[i][0] - A[i][1]))
+
+
+"""
+
+
+
+"""#D - Sum of difference
+N = int(input())
+A = list(map(int,input().split()))
+
+ans = 0
+A.sort()
+b = 0
+
+for i in range(1,N):
+    b -= A[i-1]
+    ans += A[i]*i + b
+
+print(ans)"""
+
+"""#C - Unlucky 7
+
+N = int(input())
+n = ""
+a = []
+b = []
+e = 0
+for i in range(1,N+1):
+    n = str(i)
+    if '7' in n:
+        a.append(i)
+
+for j in range(1,N+1):
+    e = str(oct(j))
+    if '7' in e:
+        b.append(j)
+print(N - len(set(a + b)))"""
+
+"""#B - Blocks on Grid
+H,W = map(int,input().split())
+A =[list(map(int, input().split())) for _ in range(H)]
+L = H*W
+a = 0
+b = 99999
+for i in range(H):
+    for j in range(W):
+        a += A[i][j]
+        if b >= A[i][j]:
+            b = A[i][j]
+print(a - b*L)"""
+
+
+
+"""#A - Brick
+N,W= map(int,input().split())
+
+print(N//W)"""
+
+"""#D - Stamp
+import math
+N,M= map(int,input().split())
+if M == 0:
+    print(1)
+    exit()
+a = list(map(int,input().split()))
+ans = 0
+a.sort()
+if a[0] - 1 >= 0:
+    a_1 = [a[0]]
+else:
+    pass
+for i in range(M-1):
+    if a[i+1]-a[i] > 1:
+        a_1.append(a[i+1]-a[i])
+if N-a[M-1] > 1:
+    a_1.append(N-a[M-1])
+print(a_1)
+
+if min(a_1) >= 2:
+    b = min(a_1)-1
+else:
+
+
+for i in range(M):
+    ans += int(math.ceil((a_1[i]-1) / b))
+
+print(ans)"""
+
+"""#C - Duodecim Ferra
+L = int(input())"""
+
+
+"""#B - Smartphone Addiction
+N,M,T= map(int,input().split())
+A =[list(map(int, input().split())) for _ in range(M)]
+
+a = N
+a -= A[0][0]
+if a <= 0:
+    print("No")
+    exit()
+
+if M == 1:
+    if N - a >= (A[0][1] - A[0][0]):
+        a += (A[0][1] - A[0][0])
+    else:
+        a = N
+else:
+    for j in range(M-1):
+        if a <= 0:
+            print("No")
+            exit()
+        if a >= N:
+            pass
+        elif N - a >= (A[j][1] - A[j][0]):
+            a += (A[j][1] - A[j][0])
+        else:
+            a = N
+        a -= A[j+1][0] - A[j][1]
+
+    a += (A[M-1][1] - A[M-1][0])
+
+if T-A[M-1][1] < a :
+    print("Yes")
+else:
+    print("No")"""
+
+"""#A - ABC Preparation
+a,b,x,y= map(int,input().split())
+
+print(min(a,b,x,y))"""
+
+"""#B - Many 110
 N = int(input())
 T = input()
 
@@ -20,7 +823,7 @@ else:
 if N % 3 ==0 and T.startswith("110"):
     print(10 ** 10 - ((N // 3)-1))
 else:
-    print(10 ** 10 - (N//3))
+    print(10 ** 10 - (N//3))"""
 
 
 # a = N // 3

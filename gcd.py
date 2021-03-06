@@ -1,7 +1,9 @@
+def gcd(m,n):
+    if n == 0 :
+        return m
+    return gcd(n, m % n)
 
-import fractions
-def N_gcd(ans):
-    ans = ans[0]
-    for i in range(1, len(ans)):
-        ans = fractions.gcd(ans, ans[i])
-    return ans
+
+N,K= map(int,input().split())
+
+print(gcd(N,K))

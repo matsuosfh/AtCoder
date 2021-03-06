@@ -1,9 +1,75 @@
-#D - Knapsack 1
-N, W = map(int, input().split())
-w = [list(map(int, input().split())) for i in range(N)]
-DP = []
+# N,W = map(int, input().split())
+# w = []
+# v = []
+# V = int(1e5) # problem constraints
+# INF = int(1e9+5)
+#
+# for _ in range(N):
+#     weight,value = map(int, input().split())
+#     w.append(weight)
+#     v.append(value)
+#
+# # rows = items, cols = values
+# dp = [[INF for col in range(V+1)] for row in range(N+1)]
+# dp[0][0] = 0
+#
+# for i in range(1, N+1):
+#     for j in range(0, V+1):
+#         w_i = w[i-1]
+#         v_i = v[i-1]
+#         if j - v_i >= 0:
+#             dp[i][j] = min(dp[i-1][j], dp[i-1][j-v_i]+w_i)
+#         else:
+#             dp[i][j] = dp[i-1][j]
+#
+# maxval = 0
+# for j in range(1, V+1):
+#     w_j = dp[N][j]
+#     if w_j <= W:
+#         maxval = max(maxval, j)
+# print(maxval)
+
+"""#E - Knapsack 2
+N,W = map(int, input().split())
+A = [list(map(int, input().split())) for i in range(N)]
+#INF = int(1e9+5)
+v_max = 0
+for k in range(N):
+    v_max += A[k][1]
+#v_max = int(1e5)
+
+# dp[i][j]: i番目までの品物を使って価値jの組み合わせを作るときの重さの総和の最小値
+dp = [[10**20 for col in range(v_max+1)] for row in range(N+1)]
+dp[0][0] = 0
+
+for i in range(1,N+1):
+    for j in range(v_max+1):
+        if j-A[i-1][1] >= 0:
+            dp[i][j] = min(dp[i-1][j],dp[i-1][j-A[i-1][1]]+A[i-1][0])
+        else:
+            dp[i][j] =dp[i-1][j]
+ans = 0
+for k in range(1,v_max+1):
+    if dp[N][k] <= W:
+        ans = max(ans,k)
+print(ans)"""
+
+"""#D - Knapsack 1
+N,W = map(int, input().split())
+A = [list(map(int, input().split())) for i in range(N)]
+
+# dp[i][j]: i番目までのもので 重さjの時の 価値の最大値
+dp = [[0 for _ in range(W+1)] for _ in range(N+1)]
+
 for i in range(N):
-    w[i][0]
+    for j in range(W+1):
+        dp[i][j] = dp[i-1][j]
+        if j-A[i][0] >= 0:
+            dp[i][j] = max(dp[i][j],dp[i-1][j-A[i][0]]+A[i][1])
+        else:
+            pass
+
+print(dp[N-1][W])"""
 
 """# C Vacation
 N = int(input())

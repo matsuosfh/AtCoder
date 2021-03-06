@@ -1,8 +1,11 @@
-#A - ニコニコ数
+#
+
+
+"""#A - ニコニコ数
 N = int(input())
 
 ans=N // 25
-print(ans)
+print(ans)"""
 
 """#A - Add Sub Mul
 A, B = map(int, input().split())
