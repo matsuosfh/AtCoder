@@ -1,4 +1,94 @@
-#
+"""#E - Mex Min
+N,M = map(int, input().split())
+A = list(map(int,input().split()))
+B = 10**9
+for i in range(N):
+    if i in A:
+        pass
+    else:
+        B = i
+        break
+#print(B)
+ans = 10**9
+for j in range(N-M+1):
+    C = min(max(A[j:j + (N - M)])+1 ,B)
+    if ans <= C:
+        ans =C
+
+print(C)"""
+#D
+N = int(input())
+
+ans = N*(-1/((1/N)-1))
+print(ans)
+"""#C - Squared Error
+import math
+N = int(input())
+A = list(map(int,input().split()))
+B= 0
+C =0
+D = 0
+E = 0
+for i in range(N):
+    E += A[i]
+
+for i in range(N-1):
+    C = 0
+    E = E-A[i]
+    B += A[i]*E
+
+for k in range(N):
+    D += A[k]**2
+
+
+#D = math.factorial(N-1)
+
+ans = (N-1)*D-2*B
+print(ans)
+"""
+"""#B - Job Assignment
+N = int(input())
+
+minA = 10**9
+minA2 = 10**9
+minB = 10**9
+minB2 = 10**9
+minC = 10**9
+ans = 0
+for i in range(N):
+    A, B = map(int, input().split())
+    C = A+B
+
+    if A <= minA:
+        minA2 = minA
+        minA = A
+    if B <= minB:
+        minB2 = minB
+        minB = B
+    if C <= minC:
+        minC = C
+
+    if minC <= max(minA,minB):
+        ans = minC
+    else:
+        ans = max(minA,minB)
+
+print(ans)
+"""
+
+
+
+"""#A - I Scream
+A,B = map(int, input().split())
+C = A+B
+if C>=15 and B>=8:
+    print(1)
+elif C>=10 and B>=3:
+    print(2)
+elif C>=3:
+    print(3)
+else:
+    print(4)"""
 
 """#D - Poker
 import collections
@@ -18,7 +108,8 @@ print(S_N)
 print(N)
 S_1 = 0
 for j in range(9):
-    S_1 += (j+1) * 10**S_N[j]
+    S_1 += (j+1)8:
+* 10**S_N[j]
 
 
 
