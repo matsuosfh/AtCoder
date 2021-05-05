@@ -1,3 +1,355 @@
+#D - 宇宙人からのメッセージ
+S = input()
+T = ""
+U = ""
+
+# S_C = S.count("R")
+# if S_C % 2 ==0:
+#     pass
+# else:
+#     S = S[::-1]
+for i in range(len(S)):
+    if S[i] == "R":
+        T = T[::-1]
+    else:
+        T += S[i]
+
+
+for i in range(len(T)):
+
+    # if S[i] == "R":
+    #     T = T[::-1]
+    # else:
+        # if len(T) >= 2 and T[len(T) - 1] == S[i]:
+        #     T.rstrip()
+        # else:
+        T += S[i]
+        if len(T) >=2 and T[len(T)-1] == T[len(T)-2]:
+            T = T[:-1]
+            T = T[:-1]
+        # T.append(S[i])
+        # if len(T) >= 2 and T[len(T) - 1] == T[len(T) - 2]:
+        #     T = T[:-1]
+        #     T = T[:-1]
+print(T)
+
+
+
+
+
+"""#B - 友好の印
+N,D,H=map(int,input().split())
+A =[list(map(int, input().split())) for _ in range(N)]
+
+maxh = 0
+
+for i in range(N):
+    h = (A[i][0]*H-D*A[i][1])/(A[i][0]-D)
+    if h >= maxh:
+        maxh = h
+    else:
+        pass
+
+print(float(maxh))"""
+
+
+
+"""#A - UFO襲来
+S = input()
+print(S.count('ZONe'))
+"""
+"""#B - Xor of Sequences
+N,M=map(int,input().split())
+A= list(map(int,input().split()))
+B= list(map(int,input().split()))
+
+for i in range(N):
+    B.remove(A[i])
+
+print(A,B)"""
+
+
+
+"""#A - Competition
+X,Y,Z=map(int,input().split())
+a =Z*(Y/X)
+if a < Y:
+    print(int(a))
+else:
+    print(int(a-1))
+"""
+"""#C - Compass Walking
+import math
+R,X,Y=map(int,input().split())
+
+L = X**2+Y**2
+A = math.sqrt(L)
+if R <= A:
+    if A % R == 0:
+        print(int(A//R))
+    else:
+        print(int(A//R+1))
+else:
+    print(2)"""
+
+"""#D - Opposite
+import math
+N = int(input())
+X0,Y0 = map(int, input().split())
+X1,Y1 = map(int, input().split())
+
+l =  (X0-X1)**2+(Y0-Y1)**2
+p = (math.sin(math.pi/N))**2
+m = (math.sin((N/2)*math.pi/N))**2
+a = l*p/m
+
+X = X0 - a**0.5*math.sin(math.degrees(180*(N-2)/N))
+Y = Y0 - a**0.5*math.cos(math.degrees(180*(N-2)/N))
+print(X,Y)"""
+"""#C - ORXOR
+N =int(input())
+A= list(map(int,input().split()))
+
+for i in range(N):
+    A[i] = bin(A[i])
+print(A)"""
+"""#B - Visibility
+H,W,X,Y = map(int, input().split())
+S =[input() for _ in range(H)]
+print(S)
+count = -3
+X = X -1
+Y = Y -1
+
+# if X != 1 or X != H:
+#     X = X-1
+# if Y != 1 or Y != W:
+#     Y = Y-1
+
+for i in range(X,0,-1):
+    if S[i][Y] == '.':
+        count += 1
+    else:
+        break
+
+for i in range(X,H):
+    if S[i][Y] == '.':
+        count += 1
+    else:
+        break
+
+for i in range(Y,0,-1):
+    if S[X][i] == '.':
+        count += 1
+    else:
+        break
+
+
+for i in range(Y,W):
+    if S[X][i] == '.':
+        count += 1
+    else:
+        break
+
+if X == 0:
+    count += 1
+if Y == 0:
+    count += 1
+if X ==0 and Y==0:
+    count -= 1
+
+print(count)"""
+
+
+"""#A - Rotate
+S = input()
+print(S[1]+S[2]+S[0])"""
+
+"""#C - Doubled
+N = str(input())
+k = len(N)//2
+c = "0"*(k-1)
+b = ("1"+(c))*2
+
+if 1 <= int(N) <11:
+    print(0)
+    exit()
+
+
+#print(b)
+if int("9"*k) <= int(N) < int(b):
+    print("9" * (k-1))
+    exit()
+if len(N)%2 == 0:
+    if int(N) < int(str(N[:k])+str(N[:k])):
+        print(int(N[:k])-1)
+    else:
+        print(int(N[:k]))
+else:
+    print("9"*(k))"""
+
+
+
+
+"""#B - Round Down
+import math
+X: str = input()
+#print(X)
+a = X.find(".")
+if a >= 1:
+    Y = X[:a]
+    ans = int(Y)
+    print(ans)
+else:
+    print(int(X))"""
+
+"""#A - Difference Max
+A,B = map(int, input().split())
+C,D = map(int, input().split())
+
+ans = B-C
+print(ans)"""
+
+"""
+#A - Not coprime
+N = int(input())
+A = list(map(int,input().split()))
+# a =1
+# for i in range(N):
+#     a = a*A[i]
+C = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53]
+# if N == 1:
+#
+#     print(A[0])
+#     exit()
+
+A.sort()
+print(A)
+B =[]
+
+for i in range(len(C)):
+    if A[0] % C[i] == 0:
+        B.append(C[i])
+        break
+    if i == len(C)-1:
+        B.append(A[0])
+
+
+for i in range(1,N):
+    for k in range(len(B)):
+        if A[i] % B[k] == 0:
+            break
+        else:
+            for j in range(len(C)):
+                if A[i] % C[j] == 0:
+                    B.append(C[j])
+                    break
+                else:
+                    if j == len(C)-1:
+                        B.append(A[i])
+
+
+            # for k in range(len(C)):
+            #     if A[i] % C[k] == 0:
+            #         B.append(C[j])
+            #         break
+            #     # if len(B) == 1:
+            #     #     if C[j] == B[0]:
+            #     #         break
+            #     #     else:
+            #     #         pass
+            #     else:
+            #         pass
+            #         if k == len(B) - 1:
+            #             B.append(C[j])
+
+#
+# for i in range(N):
+#     for j in range(len(C)):
+#         if A[i] % C[j] == 0:
+#             if len(B) == 0:
+#                 B.append(C[j])
+#                 break
+#             if len(B) == 1:
+#                 if C[j] == B[0]:
+#                     break
+#                 else:
+#                     pass
+#
+#             for k in range(len(B)):
+#
+#                 if C[j] == B[k]:
+#                     break
+#                 else:
+#                     pass
+#                     if k == len(B) - 1:
+#                         B.append(C[j])
+#             break
+#         else:
+#             pass
+
+            # if j == len(B)-1:
+            #     B.append(A[i])
+print(B)
+B = list(set(B))
+print(B)
+ans = 1
+for i in range(len(B)):
+    ans = ans*B[i]
+#
+# for k in range(len(C)):
+#     if ans % C[k]
+
+print(ans)"""
+
+"""#C - Comma
+N = int(input())
+a = str(N)
+ke = len(a)
+#print(ke)
+
+if 1<= ke <=3:
+    print(0)
+elif 4 <= ke <7:
+    print(N-999)
+elif 7<= ke <10:
+    print(N-999+(N-999999))
+elif 10<= ke <13:
+    print(N-999+(N-999999)+(N-999999999))
+elif 13<= ke <16:
+    print(N-999+(N-999999)+(N-999999999) + (N - 999999999999))
+else:
+    print(N - 999 + (N - 999999) + (N - 999999999) + (N - 999999999999) + (N - 999999999999999))"""
+
+"""
+#B - Many Oranges
+A,B,W = map(int, input().split())
+
+W = W*1000
+min_a = W // B
+max_a = W // A
+
+for i in range():
+    if W - min_a*B == 0:
+        min_ans = min_a
+
+if W - max_a*A == 0:
+    max_ans = max_a
+
+for i in range(B):
+    for j in range()
+        j"""
+
+
+
+"""#A - Health M Death
+A,B = map(int, input().split())
+if B%A==0:
+    print("Yes")
+else:
+    print("No")
+"""
+
 """#E - Mex Min
 N,M = map(int, input().split())
 A = list(map(int,input().split()))
@@ -16,11 +368,11 @@ for j in range(N-M+1):
         ans =C
 
 print(C)"""
-#D
+"""#D
 N = int(input())
 
 ans = N*(-1/((1/N)-1))
-print(ans)
+print(ans`)"""
 """#C - Squared Error
 import math
 N = int(input())
