@@ -1,4 +1,44 @@
-#E - スプリンクラー
+
+
+"""#E - スプリンクラー
+#隣接リスト
+N,M,Q = map(int,input().split())
+graph = []
+
+for i in range(0,N):
+    row =[]
+    graph.append(row)
+#辺を受け取る
+for i in range(0,M):
+    u,v = map(int,input().split())
+    u -= 1
+    v -= 1
+    #頂点u,vからv,uへ辺
+    graph[u].append(v)
+    graph[v].append(u)
+
+#頂点の色を受け取る
+C = list(map(int,input().split()))
+
+#クエリを受け取る
+for i in range(0,Q):
+    query = list(map(int,input().split()))
+
+    if query[0] == 1:
+        x = query[1]
+        x -= 1
+        print(C[x])
+        #全ての頂点を見る
+        for i in graph[x]:
+            C[i] = C[x]
+    if query[0] == 2:
+        x = query[1]
+        y = query[2]
+        x -= 1
+        print(C[x])
+        C[x] = y"""
+
+
 #隣接行列
 """N,M,Q = map(int,input().split())
 
