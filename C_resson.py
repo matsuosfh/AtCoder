@@ -1,4 +1,50 @@
-#C - March
+"""#C - Guess The Number
+
+N,M = map(int, input().split())
+c =[list(map(int, input().split())) for i in range(M)]
+a = ""
+
+if M == 0:
+    if N == 1:
+        print(0)
+    elif N == 2:
+        print(10)
+    else:
+        print(100)
+    exit()
+
+for i in range(1000):
+    a = str(i)
+    b = 0
+    for j in range(M):
+        if len(a) >= c[j][0]:
+            if a[c[j][0]-1] != str(c[j][1]):
+                b += 1
+            else:
+                pass
+        else:
+            b += 1
+        if len(a) != N:
+            b += 1
+    if b == 0:
+        print(i)
+        exit()
+    else:
+        pass
+print(-1)
+"""
+
+
+"""#C - Modulo Summation
+N = int(input())
+a =list(map(int, input().split()))
+ans = 0
+for i in range(N):
+    ans += a[i]-1
+print(ans)"""
+
+
+"""#C - March
 N = int(input())
 S = [input() for i in range(N)]
 count = 0
@@ -7,7 +53,7 @@ for i in range(N):
         count += 1
     else:
         pass
-
+"""
 
 
 

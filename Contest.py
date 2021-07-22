@@ -1,4 +1,168 @@
-bytesttest
+#E - Digit Products
+N,K =map(int,input().split())
+
+
+"""#C - Fair Candy Distribution
+N,K =map(int,input().split())
+a= list(map(int,input().split()))
+a_1 = [0]*N
+for i in range(N):
+    a_1[i] = i
+
+a2 = [list(e) for e in zip(a,a_1)]
+#print(a2)
+a2.sort()
+#print(a2)
+
+b= [0]*N
+
+if K // N >0:
+    for i in range(N):
+        b[i] += K//N
+
+# if K // N == 0:
+#     for i in range(N):
+#         b[i] += K//N
+
+if K % N > 1:
+    for j in range(K%N):
+        b[a2[j][1]] += 1
+if K % N == 1:
+    b[a2[0][1]] += 1
+
+for k in range(N):
+    print(b[k])
+"""
+
+"""#B - Factorial Yen Coin
+P = int(input())
+A = [1]
+ans = 0
+for i in range(2,11):
+    a = i*A[i-2]
+    A.append(a)
+
+A=list(reversed(A))
+print(A)
+for i in range(0,10):
+    if P // A[i] == 0:
+        pass
+    else:
+        ans += P//A[i]
+        P = P % A[i]
+print(ans)
+"""
+
+"""#A - Rolling Dice
+A,B=map(int,input().split())
+if 6*A >= B >= 1*A:
+    print("Yes")
+else:
+    print("No")
+"""
+
+
+"""#D - aab aba baa
+#A,B,K=map(int,input().split())
+
+#C - Made Up
+N = int(input())
+A= list(map(int,input().split()))
+B= list(map(int,input().split()))
+C= list(map(int,input().split()))
+"""
+
+
+"""#C - Secret Number
+S = input()
+from collections import Counter
+
+if S.count("o")> 4 or S.count("x")==10:
+    print(0)
+elif S.count("o") == 4:
+    print(24)
+elif S.count("o") == 3:
+    print(3*2*3*(S.count("o")+S.count("?")))
+elif S.count("o") == 2:
+    print(2 * 1 * (S.count("o") + S.count("?")) * (S.count("o") + S.count("?"))*12)
+elif S.count("o") == 1:
+    print((S.count("o") + S.count("?"))**4 - (S.count("?"))**4 )
+else:
+    print((S.count("o") + S.count("?"))**4)
+"""
+
+
+"""#B - Do you know the second highest mountain?
+N = int(input())
+A =[list(map(str, input().split())) for _ in range(N)]
+for i in range(N):
+    A[i][1] = int(A[i][1])
+
+A = sorted(A, reverse=True, key=lambda x: x[1])
+print(A[1][0])
+"""
+
+"""#A - Tiny Aithmetic Sequence
+A=list(map(int,input().split()))
+A.sort()
+
+if abs(A[0]-A[1]) == abs(A[1]-A[2]):
+    print("Yes")
+else:
+    print("No")"""
+
+
+"""#C - Ringo's Favorite Numbers 2
+N = int(input())
+A= list(map(int,input().split()))
+A.sort()
+#print(A)
+B =[]
+for i in range(N):
+    B.append(A[i] % 200)
+
+from collections import Counter
+C_B = Counter(B)
+#print(C_B)
+
+ans = 0
+ans_1 = list(C_B.values())
+#print(ans_1)
+
+for i in range(len(ans_1)):
+    if ans_1[i] == 1:
+        pass
+    else:
+        ans += (ans_1[i]-1)*ans_1[i]*0.5
+print(int(ans))
+
+"""
+
+
+
+
+"""#B - 200th ABC-200
+N,K=map(int,input().split())
+
+for _ in range(K):
+    if N%200 ==0:
+        N = N // 200
+    else:
+        N = str(N)
+        N += "200"
+        N = int(N)
+
+print(N)"""
+
+
+"""#A - Century
+N =int(input())
+if N%100 != 0:
+    print(N//100+1)
+else:
+    print(N//100)"""
+
+"""bytesttest
 
 #D - 宇宙人からのメッセージ
 S = input()
@@ -34,7 +198,7 @@ for i in range(len(T)):
         #     T = T[:-1]
         #     T = T[:-1]
 print(T)
-
+"""
 
 
 
