@@ -34,7 +34,7 @@ for i in range(N):
     if max_c < maxNw:
         max_Nw.append((i+1,int(maxNw)))
         max_c = maxNw
-
+#
 # ko =[]
 # for i in range(N):
 #     ko.append(kora(i+1))
