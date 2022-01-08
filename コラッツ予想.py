@@ -41,6 +41,5 @@ for i in range(N):
 
 print(max_count,len(max_count))
 print(max_N,len(max_N))
-print(max_Nw,len(max_Nw
-                 ))
+print(max_Nw,len(max_Nw))
 
